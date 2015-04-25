@@ -11,7 +11,7 @@
       
         $stateProvider
             .state('apply', {
-              url: "/apply",
+              url: "/",
               templateUrl: "./app/submit-application/appl.html",
               controllerAs: 'vm',
               controller: 'submitController'
