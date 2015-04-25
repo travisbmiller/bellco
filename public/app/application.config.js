@@ -10,17 +10,19 @@
         $urlRouterProvider.otherwise("/");
       
         $stateProvider
-            .state('state1', {
-              url: "/",
-              templateUrl: "./app/submit-application/application.html",
-              controller: 'submitController',
-            controllerAs: 'vm'
+            .state('apply', {
+              url: "/apply",
+              templateUrl: "./app/submit-application/appl.html",
+              controllerAs: 'vm',
+              controller: 'submitController'
+            
             })
             .state('state2', {
               url: "/test",
               templateUrl: "./app/submit-application/test.html",
-              controller: 'submitController',
-            controllerAs: 'vm'
+              controllerAs: 'vm',
+              controller: 'submitController'
+            
             })
         }
 
