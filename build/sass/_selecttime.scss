@@ -1,0 +1,81 @@
+.select-time-ui {
+    width: 100%;
+    height: 60px;
+    background: #F7F7F7;
+    position: relative;
+
+    .display-time {
+        display: block;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        line-height: 60px;
+        background: none;
+        color: #666;
+    }
+
+}
+
+.list-of-times {
+    background: rgb(253, 253, 253);
+    position: absolute;
+    z-index: 110 !important;
+    box-shadow: 1px 1px 6px 2px #aaa;
+    top: -100px;
+    width: 125px;
+        
+
+        header {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #000;
+        }
+        ul {
+            margin: 0;
+            width: 100%;
+            height: 200px;
+            overflow: auto;
+            position: relative;
+            
+        }
+
+        li {
+            background: none;
+            color: #666;
+            text-align: center;
+            margin: 0;
+            padding: 10px 0;
+            position: relative;
+            transition: background 0.5s;
+            
+            &:hover {
+                background: #9041D5;
+                color: #FFF;
+                &:after {
+                    left: 14px;
+                }
+            }
+            &:after {
+            content: '';
+            width: 9px;
+            height: 5px;
+            position: absolute;
+            top: 19px;
+            left: 0px;
+            border: 3px solid #FFF; 
+            border-top: none;
+            border-right: none;
+            background: transparent;
+            opacity: 1;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform:    rotate(-45deg);
+            -ms-transform:     rotate(-45deg);
+            -o-transform:      rotate(-45deg);
+            transform:         rotate(-45deg);
+            transition: left 0.4s;
+        }
+        }
+
+    }
