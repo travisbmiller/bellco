@@ -1,0 +1,55 @@
+    <div class="row">  
+        
+        <div class="column small-16 nav no-pad">
+            <img ng-click="vm.addOne()" src="images/tacobell_logo.png">
+        </div>
+    
+    </div>
+    
+    <div class="row">
+
+        <div class="column small-16 no-pad title-bar">
+            <span>Apply To Join Our Team</span>
+        </div>
+    </div>
+    <div class="row main-body">
+        
+        <div class="large-12 large-offset-2 medium-14 medium-offset-1 small-offset-1 small-14 center" ui-view>
+        </div>
+        </form>
+    </div>
+
+<div id='overlay' ng-show="vm.showOverlay"></div>
+
+<div class="row select-dropdown" ng-show="vm.SelectStores">
+    
+    <div class="column large-10 large-offset-3 medium-14 medium-offset-2 small-16 select-dropdown-container animated slideInDown">
+        
+        <header>Select Preferred Work Locations</header>
+
+        <div class="row select-dropdown-content">
+          
+            <div class="custom-check column medium-8 small-16 input-group" ng-repeat="location in vm.locations | orderBy: 'city'">
+              <span>{{location.city}} <span class="address"> - {{location.st}}</span></span>
+              <input 
+                type="checkbox" 
+                id="{{location.name}}" 
+                name="" 
+                ng-model="location.checked"/>
+              <label
+                class="lightgraybg"
+                ng-click="vm.addLocation(location)" 
+                for="{{location.name}}" 
+                ng-class="{'checked': location.checked }"></label>
+            </div>
+
+        </div>
+        <div class="row no-margin">
+            <div class="select-dropdown-close">
+                <div class="column medium-5 small-16 right">
+                  <button ng-click="vm.SelectStores = false; vm.showOverlay = false" class="button expand submit-application">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

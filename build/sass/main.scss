@@ -2,6 +2,11 @@ $font-stack:        Roboto, Arial, sans-serif;
 $font-stack2:       'Open Sans', Helvetica, Arial, sans-serif;
 $graybg-color:      #E6E6E6;
 $font-main:         #666666;
+$purple-light:      #6206B3;
+$purple-dark:       #730FCB;
+$purple-new:        #9041D5;
+$dark:              #494949;
+
 
 // ----------------------------------
 //            Base Styles
@@ -22,9 +27,18 @@ body {
   line-height: 1.5;
   position: relative;
   cursor: auto; }
+button, .button {
+  border: $purple-light;
+  &:focus {
+    background: $purple-light;
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+}
 
-
-.checked {background: #A549C5 !important;} 
+// .checked {background: $purple-light !important;} 
 
 .full-height {height: 100%;}
 
@@ -40,6 +54,8 @@ ul {
 .pad-top-5 {padding-top: 5px;}
 .pad-top-10 {padding-top: 10px;}
 .pad-top-15 {padding-top: 15px;}
+
+.pad-b-10 {padding-bottom: 10px;}
 
 .pad-lr-5 {padding: 0 5px;}
 .pad-lr-10 {padding: 0 10px;}
@@ -61,32 +77,112 @@ ul {
 // No Margin
 .no-margin {margin: 0 !important;}
 
+// Add Margin
+.mar-t-20 {
+  margin-top: 20px;
+}
+
+.mar-b-20 {
+  margin-bottom: 20px;
+}
+
+.highlight {color: $purple-light;}
+
+.highlight-bold {
+  @extend .highlight;
+  font-weight: 400;
+
+}
+
+.has-error {
+  border: 1px solid rgb(255, 142, 142) !important;
+}
+
+//backgrounds 
+  // Light Gray
+  .lightgraybg {
+    background: #E6E6E6 !important;
+  }
 
 // input-groups styles 
-.input-group {
-    position: relative;
-    margin-bottom: 10px;
-
-    ::-webkit-input-placeholder {
-       color: #C0BFBF;
+::-moz-placeholder {
+      color: #C0BFBF;
        font-weight: 300;
        font-size: 0.8em;
        font-family: $font-stack2;
-       padding-top: 4px;
+       
+}
+
+.step-info {
+  font-size: 0.8rem;
+  font-weight: 200;
+  font-family: "Roboto Condensed", Arial, sans-serif;
+}
+
+.question {
+  display: block;
+  margin: 0 0 20px 0;
+}
+
+.q {
+  display: inline-block;
+  padding-right: 10px;
+  font-weight: 600;
+  color: $purple-light;
+}
+
+
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+    position: relative;
+
+    ::-webkit-input-placeholder {
+       color: #666; //#C0BFBF;
+       font-weight: 300;
+       font-size: 0.8em;
+       font-family: $font-stack2;
+       
     }
 
     input[type="text"] {
         width: 100%;
-        height: 50px;
-        padding-top: 18px;
-        padding-left: 5px;
+        height: 65px;
+        //padding-top: 18px;
+        padding-left: 15px;
         outline: none;
         border: none;
-        border-bottom: 1px solid #ECECEC;
+        //border-bottom: 1px solid #C8C8C8;
         font-size: 16px;
         font-family: $font-stack;
         color: $font-main;
         margin-right: 10px;
+        background: #F7F7F7;
+
+      &:focus {
+          border: 1px solid #730FCB;
+      }
+
+      &:disabled {
+        background: #DEDEDE;
+      }
+    }
+
+    
+
+    .placeholder-like {
+        color: #C0BFBF;
+        font-weight: 300;
+        font-size: 0.8em;
+        font-family: $font-stack2;
+        padding-top: 4px;
+        position: relative;
+        top: 21px;
+    }
+
+    .input-like {
+      display: inline-block;
+      @extend input[type="text"];
     }
 
     label {
@@ -94,9 +190,9 @@ ul {
         font-size: 10px;
         font-family: $font-stack;
         font-weight: 400;
-        left: 10px;
+        left: 20px;
         top: 0px;
-        color: #A549C5;
+        color: $purple-light;
         opacity: 0;
         transition: 0.3s;
     }
@@ -105,30 +201,137 @@ ul {
         opacity: 1;
         top: 6px;
     }
+
 }
 
+.avail-from select, .avail-to select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    outline: none;
+    background: #F7F7F7;
+    width: 100%;
+    height: 50px;
+    border: none;
+    font-size:1.1em;
+    color:$font-main;
+    text-align: center;
+    border-radius: 0;
+    // padding-left: 30%;
+}
+
+@import '_selecttime';
 @import '_checkbox';
 @import '_radio';
+@import '_select-dropdown';
 @import '_application';
+
 
 
 // view document 
 
 .svg-document {
-    box-shadow: 0px 1px 3px 0px rgba(130, 129, 129, 0.50);
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.20);
     margin: 0 auto;
     padding: 0 !important;
     line-height: 0 !important;
 }
 
-@media only screen and (min-width: 40.063em) {
-    .input-group {margin-bottom: 10px;}
 
-    .wage {margin-top: 0;}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background: rgba(0,0,0,0.4);
 }
-
-
 
 @import 'print';
 
 
+#ui-datepicker-div {
+  
+  .ui-datepicker-header {
+      border: none;
+      background: #9013FE;
+      font-family: $font-stack;
+      font-weight: 400;
+      font-size: 0.8rem;
+      height: 50px;
+    }
+  
+  .ui-datepicker-title {
+      color: #FFF;
+      float: left;
+      width: 33.33%;
+      height: 100%;
+      background: transparent;
+      line-height: 50px;
+      text-align: center;
+  }
+
+  .ui-datepicker-prev-hover, .ui-datepicker-prev, .ui-datepicker-next-hover, .ui-datepicker-next {
+      top: .9em;
+      border:none;
+      display: inline-block;
+      height: 100%;
+      width: 33.3%;
+      line-height: 50px;
+      background: transparent;
+      color: #FFF;
+  }
+
+  .ui-datepicker-prev-hover, .ui-datepicker-prev {
+    float: left;
+    padding-left: 10px;
+  }
+
+  .ui-datepicker-next-hover, .ui-datepicker-next {
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  .ui-state-default {
+      background: transparent;
+      border: none;
+      text-align: center;
+      padding: .02em;
+      margin: 0;
+      font-weight: normal;
+      color: #666;
+      font-size: 16px;
+    }
+
+  .ui-state-disabled  {
+    opacity: 0;
+    color: red;
+  }
+ 
+  td {
+    text-align: center;
+    transition: 0.5s;
+      &:hover {
+        background: #9013FE;
+          .ui-state-default {
+            color: #FFF !important;
+          }
+        }
+    }
+
+  thead {
+    background: #730FCB;
+    border: 1px solid #730FCB;
+    z-index: 10;
+    position: relative;
+
+    tr {
+      th {
+        color: #FFF;
+        font-family: $font-stack;
+        font-weight: 200;
+        font-size: 0.8rem;
+      } 
+    }
+  }
+}

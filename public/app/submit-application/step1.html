@@ -1,0 +1,211 @@
+<!-- Tell about yourself -->
+            <div class="row animated fadeInUp">
+                
+                <div class="step-info">
+                    Step <span class="highlight-bold">1</span> of 5
+                </div>
+
+                <div class="column small-16 apply-section">   
+                    <header>
+                        Tell Us About Yourself
+                    </header>
+                    <form name="step1" ng-submit="vm.nextStep(1, step1.$valid)" novalidate>
+                    <div class="apply-section-body">
+                        
+                        <div class="row no-margin">
+                            
+                            <div class="column large-4 medium-4 small-16 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.firstName.length >= 1}">First Name</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="First Name"
+                                    name="firstName"
+                                    ng-model="vm.application.personalInformation.firstName"
+                                    required
+                                    ng-class="{ 'has-error' : step1.firstName.$invalid && vm.submittedStep1 }"
+                                    >
+                            </div>
+
+                           <div class="column large-4 medium-4 small-16 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.middleName.length >= 1}">Middle Name</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Middle Name"
+                                    name="middleName"
+                                    ng-model="vm.application.personalInformation.middleName"
+                                    required
+                                    ng-class="{ 'has-error' : step1.middleName.$invalid && vm.submittedStep1 }">
+                            </div>
+
+                            <div class="column large-4 medium-4 small-16 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.lastName.length >= 1}">Last Name</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Last Name"
+                                    name="lastName"
+                                    ng-model="vm.application.personalInformation.lastName"
+                                    required
+                                    ng-class="{ 'has-error' : step1.lastName.$invalid && vm.submittedStep1 }">
+                            </div>
+
+                            <div class="column large-4 medium-4 small-16 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.preferredName.length >= 1}">Preferred Name</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Perferred Name"
+                                    name="preferredName"
+                                    ng-model="vm.application.personalInformation.preferredName">
+
+                            </div>
+                        </div>
+
+                        <div class="row no-margin">
+                            
+                            <div class="column large-5 medium-5 small-16 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.address.st.length >= 1}">Current Address</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Current Address"
+                                    name="address"
+                                    ng-model="vm.application.personalInformation.address.st"
+                                    required
+                                    ng-class="{ 'has-error' : step1.address.$invalid && vm.submittedStep1 }">
+                            </div>
+
+                           <div class="column large-4 medium-4 small-8 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.address.city.length >= 1}">City</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="City"
+                                    name="city"
+                                    ng-model="vm.application.personalInformation.address.city"
+                                    required
+                                    ng-class="{ 'has-error' : step1.city.$invalid && vm.submittedStep1 }">
+                            </div>
+
+                            <div class="column large-3 medium-2 small-8 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.address.state.length >= 1}">State</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="State"
+                                    name="state"
+                                    ng-model="vm.application.personalInformation.address.state"
+                                    required
+                                    ng-class="{ 'has-error' : step1.state.$invalid && vm.submittedStep1 }">
+                            </div>
+
+                            <div class="column large-2 medium-3 small-8 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.address.zip.length >= 1}">Zip</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Zip"
+                                    name='zip'
+                                    ng-model="vm.application.personalInformation.address.zip"
+                                    ng-pattern="vm.onlyNumbers"
+                                    required
+                                    ng-class="{ 'has-error' : step1.zip.$invalid && vm.submittedStep1 }"
+                                    >
+                            </div>
+                            
+                            <div class="column large-2 medium-2 small-8 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.address.yearsThere.length >= 1}">Years There</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Years There"
+                                    name="yearsThere"
+                                    ng-model="vm.application.personalInformation.address.yearsThere">
+                            </div>
+                        </div>
+
+                        <div class="row no-margin">
+                            
+                            <div class="column large-6 medium-6 small-16 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.contact.email.length >= 1}">E-Mail</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="E-Mail"
+                                    name="email"
+                                    ng-model="vm.application.personalInformation.contact.email"
+                                    required
+                                    ng-class="{ 'has-error' : step1.email.$invalid && vm.submittedStep1 }">
+                            </div>
+
+                            <div class="column large-5 medium-5 small-16 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.contact.phoneCell.length >= 1}">Telephone (Cell)</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Cell Phone Number"
+                                    name="cellPhone"
+                                    ng-model="vm.application.personalInformation.contact.phoneCell"
+                                    required
+                                    ng-class="{ 'has-error' : step1.cellPhone.$invalid && vm.submittedStep1 }">
+                            </div>
+
+                            <div class="column large-5 medium-5 small-16 input-group">
+                                <label ng-class="{'show-label': vm.application.personalInformation.contact.phoneHome.length >= 1}">Telephone (Home)</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Home Phone Number"
+                                    name="homePhone"
+                                    ng-model='vm.application.personalInformation.contact.phoneHome'>
+                            </div>
+
+                        </div>
+
+                        <div class="row no-margin">
+                            
+                            <div class="column medium-8 small-16 age-confirm">
+                                <span class="q">Q.</span>Are you 16 years of age or older? 
+                            </div>
+
+                            <div class="column medium-8 small-16 age-confirm">
+                                
+                                <div class="custom-radio right">
+                                  <span>Yes</span>
+                                  <input 
+                                    type="radio" 
+                                    value="yes" 
+                                    id="age-yes" 
+                                    name="age"
+                                    ng-model="vm.application.personalInformation.olderThan16" />
+                                  <label 
+                                    for="age-yes"
+                                    ng-class="{'checked': vm.application.personalInformation.olderThan16 == 'yes'}"></label>
+                                </div>
+
+                                <div class="custom-radio right">
+                                  <span>No</span>
+                                  <input 
+                                    type="radio" 
+                                    value="no" 
+                                    id="age-no" 
+                                    name="age"
+                                    ng-model="vm.application.personalInformation.olderThan16" />
+                                  <label 
+                                    for="age-no" 
+                                    ng-class="{'checked': vm.application.personalInformation.olderThan16 == 'no'}"></label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- submit Button-->
+                        <div class="row no-margin">
+                        <div class="column large-3 medium-4 small-10 right">
+                                <button  
+                                    type="submit"
+                                    class="button expand next">
+                                    Next
+                                <span><i class="fa fa-angle-right"></i></span></button>
+                            </div>
+                            
+
+                        </div>
+                        
+                    </div> 
+                </div>
+                </form>
+                
+
+            </div>

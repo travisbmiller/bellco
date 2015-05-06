@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="./styles/normalize.css">
     <link rel="stylesheet" type="text/css" href="./styles/foundation-16.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
 </head>
 <body ng-app="app">
@@ -17,8 +19,9 @@
     
 
     <!-- jQuery -->
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <!-- Angular JS -->
     <script src="bower_components/angularjs/angular.js"></script>
     
@@ -31,12 +34,15 @@
 
     <!-- App Controllers -->
     <script src="app/submit-application/applicationController.js"></script>
+    <script src="app/dashboard/dashboard.js"></script>
     
     <!-- App Services -->
 
     
     <!-- App Directives -->
     <script src="app/showSVG.js"></script>
+    <script src="app/directives/selectLocation/selectLocation.js"></script>
+    <script src="app/directives/selectTime/selectTime.js"></script>
 
 </body>
 </html>

@@ -1,8 +1,7 @@
-
 <div class="row">  
         
         <div class="column small-16 nav no-pad">
-            <img src="images/tacobell_logo.png">
+            <img ng-click="vm.addOne()" src="images/tacobell_logo.png">
         </div>
     
     </div>
@@ -13,20 +12,20 @@
             <span>Apply To Join Our Team</span>
         </div>
     </div>
-    
     <div class="row main-body">
-        <form name="userApplication" ng-submit="vm.sumbitApplication(application)" novalidate>
-        <div class="large-10 large-offset-3 medium-14 medium-offset-1 small-offset-1 small-14 center">
+        <form name="userApplication" novalidate>
+        <div class="large-12 large-offset-2 medium-14 medium-offset-1 small-offset-1 small-14 center" ui-view>
+            
             <!-- Tell about yourself -->
-            <div class="row">
+            <div class="row " ng-show="vm.step1">
                 
                 <div class="column small-16 apply-section">   
                     
-                    <header>
+                    <header class="animated fadeInLeft">
                         Tell Us About Yourself
                     </header>
                     
-                    <div class="apply-section-body">
+                    <div class="apply-section-body animated slideInUp">
                         
                         <div class="row no-margin">
                             
@@ -195,21 +194,33 @@
                             </div>
 
                         </div>
+
+                        <!-- submit Button-->
+                        <div class="row no-margin">
+
+                            <div class="column medium-5 small-16 right">
+                                <button ng-click="vm.nextStep(1)" class="button expand submit-application">Next Step</button>
+                            </div>
+
+                        </div>
                         
                     </div> 
                 </div>
+
+                
+
             </div>
 
             <!-- Like to do at taco bell -->
-            <div class="row">
+            <div class="row" ng-show="vm.step2">
                 
                 <div class="column small-16 apply-section">   
                     
-                    <header>
+                    <header class="animated fadeInLeft">
                         What Would You Like To Do At Taco Bell?
                     </header>
                     
-                    <div class="apply-section-body">
+                    <div class="apply-section-body animated slideInUp">
                         
                         <div class="row">
                             <div class="column small-16">
@@ -314,7 +325,7 @@
                             </div>
 
                             <div class="column large-3 medium-3 left small-16 input-group wage">
-                                <label class="show-label">Desired Wage / Salary</label>
+                                <label class="show-label">Desired Wage</label>
                                 <input 
                                     type="text" 
                                     placeholder="$"
@@ -322,11 +333,13 @@
                             </div>
 
                             <div class="column large-5 medium-5 left small-16 input-group wage">
-                                <label class="show-label">Location</label>
-                                <input 
-                                    type="text" 
-                                    placeholder=""
-                                    ng-model="application.jobPreferences.storeLocation">
+                                <label class="show-label">Location </label>
+                                <span ng-click="vm.showLocationModal()" class="input-like"> 
+                                        <span ng-show="vm.selectedLocations.length === 0" class="placeholder-like">Click to Select A Store</span>
+                                        <span ng-show="vm.selectedLocations.length === 1"><span class="location">{{vm.selectedLocations[0].st}}</span></span>
+                                        <span ng-show="vm.selectedLocations.length > 1"><span class="location">{{vm.selectedLocations.length}} Locations Selected</span></span>
+                                    </span>
+                                </span>
                             </div>
 
 
@@ -343,7 +356,7 @@
                              <div class="column medium-16 small-4">
                                  
                                  <div class="row days no-margin">
-                                    <div class="column medium-1 text-center">Days</div>
+                                    <div class="column medium-2 text-center">Days</div>
                                     <div class="column medium-2 text-center">Mon</div>
                                     <div class="column medium-2 text-center">Tue</div>
                                     <div class="column medium-2 text-center">Wed</div>
@@ -357,48 +370,27 @@
                             
                             <div class="column medium-16 small-6">
                                  <div class="row avail-from">
-                                    <div class="column medium-1">From</div>
+                                    <div class="column medium-2">From</div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.mon.from" >
+                                        <div select-time data-starttime="5" data-endtime="24" data-select="from" data-pairwith="1" datavalue="vm.avilabity.mon.from"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.tue.from" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="2" datavalue="vm.avilabity.tue.from"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.wed.from" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="3" datavalue="vm.avilabity.wed.from"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.thu.from" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="4" datavalue="vm.avilabity.thu.from"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.fri.from" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="5" datavalue="vm.avilabity.fri.from"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.sat.from" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="6" datavalue="vm.avilabity.sat.from"></div>
                                     </div>
                                     <div class="column medium-2 left">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.sun.from" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="7" datavalue="vm.avilabity.sun.from"></div>
                                     </div>
                          
                                 </div>
@@ -407,55 +399,35 @@
                             <div class="column medium-16 small-6">
                                 <div class="row no-margin avail-to">
                             
-                                    <div class="column medium-1">To</div>
+                                    <div class="column medium-2">To</div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.mon.to" >
+                                        <div select-time data-starttime="5" data-endtime="28" data-select="to" data-pairwith="1" datavalue="vm.avilabity.mon.to"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.tue.to" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="2" datavalue="vm.avilabity.tue.to"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.wed.to" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="3" datavalue="vm.avilabity.wed.to"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.thu.to" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="4" datavalue="vm.avilabity.thu.to"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.fri.to" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="5" datavalue="vm.avilabity.fri.to"></div>
                                     </div>
                                     <div class="column medium-2">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.sat.to" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="6" datavalue="vm.avilabity.sat.to"></div>
                                     </div>
                                     <div class="column medium-2 left">
-                                        <input 
-                                            type="text"
-                                            name=""
-                                            ng-model="application.jobPreferences.availability.sun.to" >
+                                        <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="7" datavalue="vm.avilabity.sun.to"></div>
                                     </div>
                                 </div>
 
                             </div>
 
                             <div class="column small-16">
-                                <p class="note">Each "From" and "To" is required and must have a "PM" or "AM" ex. - <span class="highlight">7AM</span>. Days you are not available to work please enter "<span class="highlight">n/a</span>".</p>
+                                <p class="note">*
+                                    If your religious beliefs or practices prohibit you from working on a particular day or at a particular time, Taco Bell will make reasonable efforts to accommodate those beliefs or practices in accordance with applicable law. <span class="highlight">7AM</span>. Days you are not available to work please enter "<span class="highlight">N/A</span>".</p>
                             </div>
 
                         </div>
@@ -522,10 +494,20 @@
                                 <input 
                                     type="text" 
                                     placeholder="Date of employment"
-                                    ng-model="application.workedBeforeAtTacoBell.date">
+                                    ng-model="application.workedBeforeAtTacoBell.date"
+                                    date 
+                                    readonly="true" 
+                                    class="date-picker">
                             </div>
                         </div>
 
+                        <div class="row no-margin">
+
+                            <div class="column medium-5 small-16 right">
+                                <button ng-click="vm.nextStep(2)" class="button expand submit-application">Submit Application</button>
+                            </div>
+
+                        </div>
                         
                     </div>
 
@@ -534,15 +516,15 @@
             </div>
 
             <!-- School info -->
-            <div class="row">
+            <div class="row" ng-show="vm.step3">
                 
                 <div class="column small-16 apply-section">   
                     
-                    <header>
+                    <header class="animated fadeInLeft">
                         What schools have you attended?
                     </header>
                     
-                    <div class="apply-section-body">
+                    <div class="apply-section-body animated fadeInUp">
                         
                         <div class="row no-margin">
                             
@@ -618,7 +600,10 @@
                                 type="text" 
                                 placeholder="Form"
                                 name="SchoolsCollegeFrom"
-                                ng-model="application.schools.college.from">
+                                ng-model="application.schools.college.from"
+                                date 
+                                readonly="true" 
+                                class="date-picker">
                             </div>
 
                             <div class="column large-2 medium-2 small-16 input-group">
@@ -627,7 +612,10 @@
                                 type="text" 
                                 placeholder="To"
                                 name="SchoolsCollegeTo"
-                                ng-model="application.schools.college.to">
+                                ng-model="application.schools.college.to"
+                                date 
+                                readonly="true" 
+                                class="date-picker">
                             </div>
 
                             <div class="column large-3 medium-3 small-16 input-group">
@@ -675,7 +663,10 @@
                                     type="text" 
                                     placeholder="Form"
                                     name="SchoolsOtherFrom"
-                                    ng-model="application.schools.other.from">
+                                    ng-model="application.schools.other.from"
+                                    date 
+                                    readonly="true" 
+                                    class="date-picker">
                             </div>
 
                             <div class="column large-2 medium-2 small-16 input-group">
@@ -684,7 +675,10 @@
                                     type="text" 
                                     placeholder="To"
                                     name="SchoolsOtherTo"
-                                    ng-model="application.schools.other.to">
+                                    ng-model="application.schools.other.to"
+                                    date 
+                                    readonly="true" 
+                                    class="date-picker">
                            </div>
 
                             <div class="column large-3 medium-3 small-16 input-group">
@@ -697,21 +691,28 @@
                             </div>
                         </div>
 
+                        <div class="row no-margin">
+
+                            <div class="column medium-5 small-16 right">
+                                <button ng-click="vm.nextStep(3)" class="button expand submit-application">Next Step</button>
+                            </div>
+
+                        </div>
                         
                     </div> 
                 </div>
             </div>
 
             <!-- Last 2 Jobs -->
-            <div class="row">
+            <div class="row" ng-show="vm.step4">
                 
                 <div class="column small-16 apply-section">   
                     
-                    <header>
+                    <header class="animated fadeInLeft">
                         Two most recent jobs
                     </header>
                     
-                    <div class="apply-section-body">
+                    <div class="apply-section-body animated fadeInUp">
                         
                         <div class="row">
                             <div class="column small-16">
@@ -754,7 +755,10 @@
                                     type="text" 
                                     placeholder="From"
                                     name="JobsOneFrom"
-                                    ng-model="application.jobs.one.from">
+                                    ng-model="application.jobs.one.from"
+                                    date 
+                                    readonly="true" 
+                                    class="date-picker">
                             </div>
 
                             <div class="column large-2 medium-2 small-8 input-group">
@@ -763,7 +767,10 @@
                                     type="text" 
                                     placeholder="To"
                                     name="JobsOneTo"
-                                    ng-model="application.jobs.one.to">
+                                    ng-model="application.jobs.one.to"
+                                    date 
+                                    readonly="true" 
+                                    class="date-picker">
                             </div>
 
 
@@ -920,7 +927,10 @@
                                     type="text" 
                                     placeholder="From"
                                     name="JobsOneFrom"
-                                    ng-model="application.jobs.two.from">
+                                    ng-model="application.jobs.two.from"
+                                    class="date-picker"
+                                    readonly="true" 
+                                    date>
                             </div>
 
                             <div class="column large-2 medium-2 small-8 input-group">
@@ -929,7 +939,10 @@
                                     type="text" 
                                     placeholder="To"
                                     name="JobsOneTo"
-                                    ng-model="application.jobs.two.to">
+                                    ng-model="application.jobs.two.to"
+                                    date 
+                                    readonly="true" 
+                                    class="date-picker">
                             </div>
 
 
@@ -1043,30 +1056,38 @@
 
                         </div>
 
+                        <div class="row no-margin">
+
+                            <div class="column medium-5 small-16 right">
+                                <button ng-click="vm.nextStep(4)" class="button expand submit-application">Next Step</button>
+                            </div>
+
+                        </div>
+
                     </div> 
                 </div>
             </div>
 
             <!-- Mis. Info -->
-            <div class="row">
+            <div class="row" ng-show="vm.step5">
                 
                 <div class="column small-16 apply-section">   
                     
-                    <header>
+                    <header class="animated fadeInLeft">
                         Miscellaneous Information
                     </header>
                     
-                    <div class="apply-section-body">
+                    <div class="apply-section-body animated fadeInUp">
                         
                         <div class="row no-margin">
                                 
-                            <div class="column large-10 medium-10 small-16 input-group height-50">
+                            <div class="column small-16 input-group height-50">
                               <span>Do you have reliable transportation to get to work?</span>
                             </div>
 
-                            <div class="column large-6 medium-6 small-16 height-50">
+                            <div class="column small-16 height-50">
                               
-                                <div class="custom-radio right">
+                                <div class="custom-radio left">
                                   <span>Yes</span>
                                   <input 
                                     type="radio" 
@@ -1079,7 +1100,7 @@
                                     ng-class="{'checked': application.mis.transportation == 'yes'}"></label>
                                 </div>
 
-                                <div class="custom-radio right">
+                                <div class="custom-radio left">
                                   <span>No</span>
                                   <input 
                                     type="radio" 
@@ -1096,13 +1117,13 @@
 
                             </div>
 
-                            <div class="column large-10 medium-10 small-16 input-group height-50">
+                            <div class="column small-16 input-group height-50 mar-t-20">
                               <span>If hired, can you show proof of your legal right to work in the United States?</span>
                             </div>
 
-                            <div class="column large-6 medium-6 small-16 height-50">
+                            <div class="column small-16 height-50">
                               
-                                <div class="custom-radio right">
+                                <div class="custom-radio left">
                                   <span>Yes</span>
                                   <input 
                                     type="radio" 
@@ -1115,7 +1136,7 @@
                                     ng-class="{'checked': application.mis.showProof == 'yes'}"></label>
                                 </div>
 
-                                <div class="custom-radio right">
+                                <div class="custom-radio left">
                                   <span>No</span>
                                   <input 
                                     type="radio" 
@@ -1130,22 +1151,34 @@
 
                             </div>
 
-                            <div class="column large-10 medium-10 small-16 input-group height-50">
+                            <div class="column large-10 medium-10 small-16 input-group height-50 mar-t-20">
                               <span>If hired, when could you begin work?</span>
                             </div>
 
-                            <div class="column large-4 medium-4 small-16 input-group">
+                            <div class="column large-4 medium-4 small-16 input-group mar-t-20">
                                 <label ng-class="{'show-label': application.mis.startDate.length >= 1}">Start Date</label>
                                 <input 
                                     type='text' 
                                     placeholder="Start Date"
-                                    name="MisStartDate"
+                                    name="StartDate"
                                     ng-model="application.mis.startDate"
-                                    required>
+                                    required
+                                    date 
+                                    readonly="true" 
+                                    class="date-picker"
+                                    >
                             </div>
 
                         </div>
-                        
+                    
+                        <div class="row no-margin">
+
+                            <div class="column medium-5 small-16 right">
+                                <button ng-click="vm.nextStep(5)" class="button expand submit-application">Submit Application</button>
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -1153,14 +1186,47 @@
             </div>
 
             <!-- submit Button-->
-            <div class="row">
+           <!--  <div class="row no-margin">
 
                 <div class="column medium-5 small-16 right">
-                    <button class="button expand submit-application">Submit Application</button>
+                    <button ng-click="vm.change()" class="button expand submit-application">Submit Application</button>
                 </div>
 
-            </div>
+            </div> -->
 
         </div>
     </form>
+</div>
+
+<div id='overlay' ng-show="vm.showOverlay"></div>
+<div class="row select-dropdown" ng-show="vm.SelectStores">
+    
+    <div class="column large-10 large-offset-3 medium-14 medium-offset-1 small-16 select-dropdown-container animated fadeInDown">
+        
+        <header>Select Preferred Work Locations</header>
+
+        <div class="row select-dropdown-content">
+          
+            <div class="custom-check column medium-8 small-16 input-group" ng-repeat="location in vm.locations | orderBy: 'city'">
+              <span>{{location.city}} <span class="address"> - {{location.st}}</span></span>
+              <input 
+                type="checkbox" 
+                id="{{location.name}}" 
+                name="" 
+                ng-model="location.checked"/>
+              <label
+                class="lightgraybg"
+                ng-click="vm.addLocation(location)" 
+                for="{{location.name}}" 
+                ng-class="{'checked': location.checked }"></label>
+            </div>
+
+        </div>
+        <div class="row no-margin">
+            <div class="select-dropdown-close">
+                <div class="column medium-5 small-16 right">
+                  <button ng-click="vm.SelectStores = false; vm.showOverlay = false" class="button expand submit-application">Done</button>
+                </div>
+            </div>
+        </div>
 </div>

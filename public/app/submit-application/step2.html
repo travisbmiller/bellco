@@ -1,0 +1,320 @@
+<!-- Like to do at taco bell -->
+<div class="row animated fadeInUp">
+    
+    <div class="step-info">
+        Step <span class="highlight-bold">2</span> of 5
+    </div>
+
+    <div class="column small-16 apply-section">   
+        
+        <header>
+            What Would You Like To Do At Taco Bell?
+        </header>
+        
+        <div class="apply-section-body">
+            
+            <div class="row">
+                <div class="column small-16">
+                    <span class="label-like">Positions</span>
+                </div>
+            </div>
+
+            <div class="row no-margin job-positions">
+                    
+                <div class="custom-check column large-4 medium-4 small-16 input-group">
+                  <span>Crew Member</span>
+                  <input 
+                    type="checkbox"  
+                    id="crew-member" 
+                    name="" 
+                    ng-model="vm.application.jobPreferences.positions.crewMember"/>
+                  <label 
+                    for="crew-member" 
+                    ng-class="{'checked': vm.application.jobPreferences.positions.crewMember}"></label>
+                </div>
+
+                <div class="custom-check column large-4 medium-4 small-16 input-group">
+                  <span>Shift Manager</span>
+                  <input 
+                    type="checkbox"  
+                    id="shift-manager" 
+                    name="" 
+                    ng-model="vm.application.jobPreferences.positions.shiftManager"/>
+                  <label 
+                    for="shift-manager" 
+                    ng-class="{'checked': vm.application.jobPreferences.positions.shiftManager}"></label>
+                </div>
+
+                <div class="custom-check column large-4 medium-4 small-16 input-group">
+                  <span>Store Manager</span>
+                  <input 
+                    type="checkbox" 
+                    id="store-manager" 
+                    name="" 
+                    ng-model="vm.application.jobPreferences.positions.storeManager"/>
+                  <label 
+                    for="store-manager" 
+                    ng-class="{'checked': vm.application.jobPreferences.positions.storeManager}"></label>
+                </div>
+
+                <div class="custom-check column large-4 medium-4 small-16 input-group">
+                  <span>Other</span>
+                  <input 
+                    type="checkbox" 
+                    id="other" 
+                    name="other" 
+                    ng-model="vm.application.jobPreferences.positions.other"/>
+                  <label 
+                    for="other" 
+                    ng-class="{'checked': vm.application.jobPreferences.positions.other}"></label>
+                </div>
+
+            </div>
+
+            <div class="row pad-lr-15" ng-show="vm.application.jobPreferences.positions.other">
+
+                <div class="column medium-16 small-16 input-group">
+                    <label>Other</label>
+                    <input 
+                        type="text" 
+                        placeholder="Other Job Roles"
+                        ng-model="vm.application.jobPreferences.positions.otherRoles">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="column small-16">
+                    <span class="label-like">Job Preferences</span>
+                </div>
+            </div>
+
+            <div class="row no-margin job-wage">
+                    
+                <div class="custom-check column large-4 medium-4 small-16 input-group">
+                  <span>Full Time</span>
+                  <input 
+                    type="checkbox" 
+                    id="full-time" 
+                    name=""
+                    ng-model="vm.application.jobPreferences.fullTime" />
+                  <label 
+                    for="full-time"
+                    ng-class="{'checked': vm.application.jobPreferences.fullTime}"></label>
+                </div>
+
+                <div class="custom-check column large-4 medium-4 small-16 input-group">
+                  <span>Part Time</span>
+                  <input 
+                    type="checkbox" 
+                    id="part-time" 
+                    name=""
+                    ng-model="vm.application.jobPreferences.partTime" />
+                  <label 
+                    for="part-time"
+                    ng-class="{'checked': vm.application.jobPreferences.partTime}"></label>
+                </div>
+
+                <div class="column large-3 medium-3 left small-16 input-group wage">
+                    <label class="show-label">Desired Wage</label>
+                    <input 
+                        type="text" 
+                        placeholder="$"
+                        ng-model="vm.application.jobPreferences.wage">
+                </div>
+
+                <div class="column large-5 medium-5 left small-16 input-group wage">
+                    <label class="show-label">Location </label>
+                    <span ng-click="vm.showLocationModal()" class="input-like"> 
+                            <span ng-show="vm.selectedLocations.length === 0" class="placeholder-like">Click to Select A Store</span>
+                            <span ng-show="vm.selectedLocations.length === 1"><span class="location">{{vm.selectedLocations[0].st}}</span></span>
+                            <span ng-show="vm.selectedLocations.length > 1"><span class="location">{{vm.selectedLocations.length}} Locations Selected</span></span>
+                        </span>
+                    </span>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="column small-16">
+                    <span class="label-like">Availability</span>
+                </div>
+            </div>
+
+            <div class="row no-margin">
+                    
+                 <div class="column medium-16 small-4">
+                     
+                     <div class="row days no-margin">
+                        <div class="column medium-2 text-center">Days</div>
+                        <div class="column medium-2 text-center">Mon</div>
+                        <div class="column medium-2 text-center">Tue</div>
+                        <div class="column medium-2 text-center">Wed</div>
+                        <div class="column medium-2 text-center">Thur</div>
+                        <div class="column medium-2 text-center">Fri</div>
+                        <div class="column medium-2 text-center">Sat</div>
+                        <div class="column medium-2 text-center left">Sun</div>
+                     </div>
+
+                 </div>   
+                
+                <div class="column medium-16 small-6">
+                     <div class="row avail-from">
+                        <div class="column medium-2">From</div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="24" data-select="from" data-pairwith="1" datavalue="vm.avilabity.mon.from"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="2" datavalue="vm.avilabity.tue.from"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="3" datavalue="vm.avilabity.wed.from"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="4" datavalue="vm.avilabity.thu.from"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="5" datavalue="vm.avilabity.fri.from"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="6" datavalue="vm.avilabity.sat.from"></div>
+                        </div>
+                        <div class="column medium-2 left">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="7" datavalue="vm.avilabity.sun.from"></div>
+                        </div>
+             
+                    </div>
+                </div>
+
+                <div class="column medium-16 small-6">
+                    <div class="row no-margin avail-to">
+                
+                        <div class="column medium-2">To</div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="28" data-select="to" data-pairwith="1" datavalue="vm.avilabity.mon.to"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="2" datavalue="vm.avilabity.tue.to"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="3" datavalue="vm.avilabity.wed.to"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="4" datavalue="vm.avilabity.thu.to"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="5" datavalue="vm.avilabity.fri.to"></div>
+                        </div>
+                        <div class="column medium-2">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="6" datavalue="vm.avilabity.sat.to"></div>
+                        </div>
+                        <div class="column medium-2 left">
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="7" datavalue="vm.avilabity.sun.to"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="column small-offset-1 small-15">
+                    <p class="note">
+                        <span class="highlight">*</span>
+                        If your religious beliefs or practices prohibit you from working on a particular day or at a particular time, Taco Bell will make reasonable efforts to accommodate those beliefs or practices in accordance with applicable law. 
+                        <br>
+                        <span class="highlight">*</span> Days you are not available to work please enter "<span class="highlight">N/A</span>" and days you can work any hours please enter "<span class="highlight">ANY</span>".</p>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row no-margin">
+                    
+                <div class="column large-10 medium-10 small-16 input-group height-50">
+                  <span class="question"><span class="q">Q.</span>Have you worked at Taco Bell before?</span>
+                </div>
+
+                <div class="column large-6 medium-6 small-16 height-50">
+                  
+                    <div class="custom-radio right">
+                      <span>Yes</span>
+                      <input 
+                        type="radio" 
+                        value="yes" 
+                        id="work-before-yes" 
+                        name="workedBeforeAtTacoBell" 
+                        ng-model="vm.application.workedBeforeAtTacoBell.confirm"/>
+                      <label 
+                        for="work-before-yes"
+                        ng-class="{'checked': vm.application.workedBeforeAtTacoBell.confirm == 'yes'}"></label>
+                    </div>
+
+                    <div class="custom-radio right">
+                      <span>No</span>
+                      <input 
+                        type="radio" 
+                        value="no" 
+                        id="work-befor-no" 
+                        name="workedBeforeAtTacoBell" 
+                        ng-model="vm.application.workedBeforeAtTacoBell.confirm"/>
+                      <label 
+                        for="work-befor-no"
+                        ng-class="{'checked': vm.application.workedBeforeAtTacoBell.confirm == 'no'}"></label>
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div class="row no-margin pad-top-15" ng-show="vm.application.workedBeforeAtTacoBell.confirm == 'yes'">
+                
+                <div class="column medium-6 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.workedBeforeAtTacoBell.location.length >= 1}">
+                    Located Where</label>
+                    <input 
+                        type="text" 
+                        placeholder="Located where?"
+                        name="workedBeforeAtTacoBellLocation"
+                        ng-model="vm.application.workedBeforeAtTacoBell.location">
+                </div>
+
+                <div class="column medium-6 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.workedBeforeAtTacoBell.position.length >= 1}">What Position</label>
+                    <input 
+                        type="text" 
+                        placeholder="What Position did you work?"
+                        name="workedBeforeAtTacoBellPosition"
+                        ng-model="vm.application.workedBeforeAtTacoBell.position"> 
+                </div>
+
+                <div class="column medium-4 small-16 input-group">
+                    <label class="show-label">Date</label>
+                    <input 
+                        type="text" 
+                        placeholder="Date of employment"
+                        ng-model="vm.application.workedBeforeAtTacoBell.date"
+                        date 
+                        readonly="true" 
+                        class="date-picker">
+                </div>
+            </div>
+
+            <div class="row no-margin">
+
+                <div class="column large-3 medium-4 small-10 right">
+                                <button ng-click="vm.nextStep(2, null)" class="button expand next">Next<span><i class="fa fa-angle-right"></i></span></button>
+                            </div>
+                            <div class="column medium-3 small-6 right">
+                                <button ng-click="vm.backStep(2)" class="button expand back"><span><i class="fa fa-angle-left"></i></span>Back</button>
+                            </div>
+
+                        </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+</div>
+
+

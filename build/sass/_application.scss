@@ -3,7 +3,7 @@
 .nav {
     height: 80px;
     width: 100%;
-    background: #000;
+    background: #6206B3;
     padding-left: 5%;
     position: relative;
     
@@ -24,7 +24,7 @@
 
 .title-bar {
     height: 60px;
-    background: #FFF;
+    background: #730FCB;
 
     span {
         padding-left: 5%;
@@ -34,7 +34,7 @@
         font-size: 18px;
         font-family: $font-stack2;
         font-weight: 300;
-        color: #666;
+        color: #FFF;
     }
 }
 
@@ -46,16 +46,24 @@
         height: 60px;
         padding-left: 20px;
         line-height: 60px;
-        font-family: $font-stack;
-        font-weight: 400;
+        font-family: "Roboto Condensed";
+        font-weight: 300;
         position: relative;
-        color: #A549C5;
-        background: #F9F9F9;
+        color: #666;
+        background: none;
+    }
+    .wage {
+        padding-left: 0px;
+        margin-top: 20px;
+        
+    }
+    .wage:last-child {
+        margin-top: 0;
     }
 
     .apply-section-body {
         height: auto;
-        background: #FFF;
+        background: none;
         position: relative;
         padding: 10px;
 
@@ -64,7 +72,7 @@
             font-size: 10px;
             font-family: $font-stack;
             font-weight: 400;
-            color: #A549C5;
+            color: $purple-light;
             padding-left: 20px;
         }
 
@@ -101,13 +109,12 @@
         .height-50 {
             height: 40px;
             font-size: 1em;
-            padding-top: 10px;
+            //padding-top: 10px;
         }
 
     
-        .highlight {color: #A549C5;}
+        
         .job-positions {padding: 10px 10px;}
-        .wage {margin-top: 20px;}
         .job-wage {padding: 0px 10px;}
 
 
@@ -118,14 +125,14 @@
 .row.avail-from, .row.avail-to, .row.days {margin: 0 0 5px 0;}
 
 .avail-from, .avail-to {
-    height: 40px;
+    line-height: 60px;
     margin-bottom: 5px;
     
     input[type="text"] {
         width: 100%;
         margin: 0;
-        height: 40px;
-        background: #ECECEC;
+        height: 50px;
+        background: #F7F7F7;
         outline: none;
         border: none;
         text-align: center;
@@ -135,20 +142,160 @@
     }
 
     div:first-of-type {
-        height: 40px;
-        line-height: 40px;
         text-align: center;
-        color: #ccc;
+        color: #666;
     }
 
-    .column {padding: 0.15rem;}
+    .column {padding: 0.3rem;}
 }
 
 
 .submit-application {
-    background: #A549C5;
+    margin-top: 50px;
+    height: 60px;
+    background: $purple-dark;
+    font-family: "Roboto Condensed";
+    font-weight: 300;
     &:hover {
-        background: #8834A5;    
+        background: $purple-light;    
     }
 }
 
+.next {
+    margin-top: 50px;
+    height: 60px;
+    background: $purple-light;
+    color: #FFF;
+    font-family: "Roboto Condensed";
+    font-weight: 300;
+    positino: relative;
+    
+    span {
+            font-size: 2rem;
+            color: #FFF;
+            position: absolute;
+            top: 6px;
+            right: 30px;
+            opacity: 0;
+            transition: 0.5s; 
+    }
+
+    &:hover {
+        background: $purple-dark;
+        color: #FFF;
+        font-weight: 500;
+
+        span {
+            right: 12px;
+            opacity: 1;
+        }
+    }
+}
+
+.back {
+    margin-top: 50px;
+    height: 60px;
+    background: #DEDEDE;
+    border: 1px solid #DEDEDE;
+    color: $dark;
+    font-family: "Roboto Condensed";
+    font-weight: 300;
+    positino: relative;
+    //transition: 0.5s;
+    
+    span {
+            font-size: 2rem;
+            color: $purple-dark;
+            position: absolute;
+            top: 6px;
+            left: 30px;
+            opacity: 0;
+            transition: 0.5s; 
+    }
+
+    &:hover {
+        border: 1px solid $purple-dark;
+        background: #DEDEDE;  
+        color: $purple-dark;
+        font-weight: 500;
+
+        span {
+            left: 10px;
+            opacity: 1;
+        }
+    }
+}
+
+
+
+
+
+
+.top-header {
+    height: 80px;
+    background: #9013FE;
+}
+
+.bottom-header {
+    height: 40px;
+    background: #730FCB;
+}
+
+.fa.fa-clock-o {
+    color: #460566;
+    font-size: 1.2em;
+    margin-right: 8px;
+    position: relative;
+    top: 1px;
+}
+
+.date-range {
+    font-size: 12px;
+    color: #FFF;
+    padding-top: 10px;
+    display: inline-block;
+    padding-left:40px;
+    font-weight: 200; 
+    font-family:'Roboto Condensed', sans-serif; 
+    position: relative; 
+}
+
+.table-header {
+    padding-top: 35px;
+    height: 60px;
+    font-size: 12px;
+    font-weight: 100;
+
+}
+
+.bar {
+    height: 40px;
+    background: #fafafa;
+    border-bottom: 1px solid #E3E3E3;
+    padding-left: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    padding-top: 10px;
+}
+
+.location {
+    font-size: 16px;
+    font-family: $font-stack;
+    color: $font-main;
+    position: relative;
+    top: 21px;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .input-group {margin-bottom: 10px;}
+
+    .apply-section {
+        .wage {
+            margin-top: 0;
+            padding-left: 0.3em;
+        }
+        .wage:last-child {
+            padding-right: 0px;
+        }
+    }
+}
