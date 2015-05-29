@@ -1,52 +1,61 @@
 .select-dropdown {
     position: relative;
+    z-index: 100;
+}
+
+.select-dropdown-title {
+    height: 60px;
+    background: red;
+}
     
-    .select-dropdown-title {
+.select-dropdown-container {
+    position: fixed;
+    top: 10%;
+    height: 80%;
+    background: none;
+
+    header {
         height: 60px;
-        background: red;
+        line-height: 60px;
+        margin: 0 auto;
+        background: #F7F7F7;
+        padding-left: 15px;
+        color: $purple-light;
+        border: none;
     }
-    
-    .select-dropdown-container {
-        position: fixed;
-        top: 20%;
-        height: 60%;
-        background: none;
 
-        header {
-            height: 60px;
-            line-height: 60px;
-            margin: 0 auto;
-            background: #F7F7F7;
-            padding-left: 15px;
-            color: $purple-light;
+
+    .select-dropdown-content {
+        height: calc(100% - 140px);
+        margin: 0 auto;
+        overflow: auto;
+        background: #F7F7F7;
+        padding: 15px 0 15px 15px;
+        padding-left: 15px;
+
+        .address {
+            font-size: 0.8rem;
+            color: #bbb;
+            top: 20px;
         }
-    
-
-        .select-dropdown-content {
-            height: calc(100% - 140px);
-            margin: 0 auto;
-            overflow: auto;
-            background: #F7F7F7;
-            padding: 15px 0 15px 15px;
-            padding-left: 15px;
-
-            .address {
-                font-size: 0.8rem;
-                color: #bbb;
-                top: 20px;
-            }
-        }
+    }
         
-        .select-dropdown-close {
-            height: 80px;
-            margin: 0 auto;
-            background: #F7F7F7;
-            color: #666;
-            padding: 10px 5px 0;
-            .submit-application {
-                margin: 0 0 20px 0;
-            }
-        }  
-    }
+    .select-dropdown-close {
+        height: 80px;
+        margin: 0 auto;
+        background: #F7F7F7;
+        color: #666;
+        padding: 10px 5px 0;
+        .submit-application {
+            margin: 0 0 20px 0;
+        }
+    }  
+}
     
+
+
+@media only screen and (min-width: 40.063em) {
+     .select-dropdown-container {
+        height: 50%;
+     }
 }

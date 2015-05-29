@@ -1,46 +1,43 @@
     <div class="row">  
-        
         <div class="column small-16 nav no-pad">
-            <img ng-click="vm.addOne()" src="images/tacobell_logo.png">
+            <img src="images/tacobell_logo.png">
         </div>
-    
     </div>
     
-    <div class="row">
-
-        <div class="column small-16 no-pad title-bar">
+    <div class="row title-bar">
+        <div class="column small-11 no-pad ">
             <span>Apply To Join Our Team</span>
         </div>
     </div>
+    
     <div class="row main-body">
-        
-        <div class="large-12 large-offset-2 medium-14 medium-offset-1 small-offset-1 small-14 center" ui-view>
+        <div class="large-12 large-offset-2 medium-14 medium-offset-1 small-offset-1 small-14 center">
+            <div id="steps-views" ui-view></div>
         </div>
-        </form>
     </div>
 
-<div id='overlay' ng-show="vm.showOverlay"></div>
+<div id='overlay' ng-hide="!vm.showOverlay"></div>
 
-<div class="row select-dropdown" ng-show="vm.SelectStores">
+<div class="row select-dropdown">
     
-    <div class="column large-10 large-offset-3 medium-14 medium-offset-2 small-16 select-dropdown-container animated slideInDown">
+    <div class="column large-10 large-offset-3 medium-14 medium-offset-1 small-16 select-dropdown-container" ng-hide="!vm.SelectStores">
         
         <header>Select Preferred Work Locations</header>
 
         <div class="row select-dropdown-content">
           
-            <div class="custom-check column medium-8 small-16 input-group" ng-repeat="location in vm.locations | orderBy: 'city'">
-              <span>{{location.city}} <span class="address"> - {{location.st}}</span></span>
+            <div class="custom-check column medium-8 small-16 input-group" ng-repeat="location in vm.application.locations | orderBy: 'city'">
+              <span>{{location.name}} <span class="address"> - {{location.st}}</span></span>
               <input 
                 type="checkbox" 
                 id="{{location.name}}" 
                 name="" 
-                ng-model="location.checked"/>
+                ng-model="vm.application.locations[location.id].checked"/>
               <label
                 class="lightgraybg"
-                ng-click="vm.addLocation(location)" 
+                ng-click="vm.addLocation(location, location.id)" 
                 for="{{location.name}}" 
-                ng-class="{'checked': location.checked }"></label>
+                ng-class="{'checked': vm.application.locations[{{location.id}}].checked }"></label>
             </div>
 
         </div>
@@ -53,3 +50,24 @@
         </div>
     </div>
 </div>
+
+<div class="row modal" ng-show="vm.showModalError">
+    
+    <div class="column large-10 large-offset-3 medium-10 medium-offset-3 small-14 small-offset-1 modal-container">
+        
+        <header>Oh No.... </header>
+
+        <div class="err-msg">
+            {{ vm.errorMsg }}
+        </div>
+        
+        <div class="row no-margin">
+            <div class="select-dropdown-close">
+                <div class="column medium-5 small-16 right">
+                  <button ng-click="vm.showModalError = false; vm.showOverlay = false" class="button expand submit-application">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

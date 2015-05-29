@@ -1,373 +1,373 @@
 <!-- Last 2 Jobs -->
-            <div class="row animated fadeInUp">
-                
-                <div class="step-info">
-                    Step <span class="highlight-bold">4</span> of 5
-                </div>
+<div class="row">
+    
+    <div class="step-info">
+        Step <span class="highlight-bold">4</span> of 5
+    </div>
 
-                <div class="column small-16 apply-section">   
-                    
-                    <header>
-                        Two most recent jobs
-                    </header>
-                    
-                    <div class="apply-section-body">
-                        
-                        <div class="row">
-                            <div class="column small-16">
-                                <span class="label-like pad-b-10">Job #1</span>
-                            </div>
-                        </div>
-
-                        <div class="row no-margin">
-                            
-                            <div class="column large-5 medium-5 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.company.length >= 1}">Company</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Company"
-                                    name="JobsOneCompany"
-                                    ng-model="vm.application.jobs.one.company">
-                            </div>
-
-                            <div class="column large-4 medium-4 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.supervisor.length >= 1}">Supervisor's Name</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Supervisor's Name"
-                                    name="JobsOneSupervisor"
-                                    ng-model="vm.application.jobs.one.supervisor">
-                            </div>
-
-                            <div class="column large-3 medium-3 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.phone.length >= 1}">Telephone</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Telephone"
-                                    name="JobsOnePhone"
-                                    ng-model="vm.application.jobs.one.phone">
-                            </div>
-
-                            <div class="column large-2 medium-2 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.from.length >= 1}">From</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="From"
-                                    name="JobsOneFrom"
-                                    ng-model="vm.application.jobs.one.from"
-                                    date 
-                                    readonly="true" 
-                                    class="date-picker">
-                            </div>
-
-                            <div class="column large-2 medium-2 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.to.length >= 1}">To</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="To"
-                                    name="JobsOneTo"
-                                    ng-model="vm.application.jobs.one.to"
-                                    date 
-                                    readonly="true" 
-                                    class="date-picker">
-                            </div>
-
-
-                        </div>
-
-                        <div class="row no-margin">
-                            
-                            <div class="column large-5 medium-5 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.address.length >= 1}">Address</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Address"
-                                    name="JobsOneAddress"
-                                    ng-model="vm.application.jobs.one.address">
-                            </div>
-
-                           <div class="column large-4 medium-4 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.city.length >= 1}">City</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="City"
-                                    name="JobsOneCity"
-                                    ng-model="vm.application.jobs.one.city">
-                            </div>
-
-                            <div class="column large-3 medium-2 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.state.length >= 1}">State</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="State"
-                                    name="JobsOneStatezip"
-                                    ng-model="vm.application.jobs.one.state">
-                            </div>
-
-                            <div class="column large-2 medium-3 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.zip.length >= 1}">Zip</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Zip"
-                                    name="JobsOneZiplastwage"
-                                    ng-model="vm.application.jobs.one.zip">
-                            </div>
-
-                            <div class="column large-2 medium-2 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.lastwage.length >= 1}">Last Wage</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="last Wage"
-                                    name="JobsOne"
-                                    ng-model="vm.application.jobs.one.lastwage">
-                            </div>
-                        </div>
-
-                        <div class="row no-margin">
-                            
-                            <div class="column large-8 medium-8 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.jobdetails.length >= 1}">What did you do?</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="What did you do?"
-                                    name="JobsOneJobDetails"
-                                    ng-model="vm.application.jobs.one.jobdetails">
-                            </div>
-
-                           <div class="column large-8 medium-8 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.one.leaveReason.length >= 1}">Why did you leave</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Why did you leave?"
-                                    name="JobsOneLeaveReason"
-                                    ng-model="vm.application.jobs.one.leaveReason">
-                            </div>
-
-                        </div>
-
-                        <div class="row no-margin">
-                            
-                            <div class="column medium-8 small-16 age-confirm">
-                                <span class="q">Q.</span>If currently employed, may we contact? 
-                            </div>
-
-                            <div class="column medium-8 small-16 age-confirm">
-                                
-                                <div class="custom-radio right">
-                                  <span>Yes</span>
-                                  <input 
-                                    type="radio" 
-                                    value="yes" 
-                                    id="jobOneContactJob-yes" 
-                                    name="jobOneMayWeContact"
-                                    ng-model="vm.application.jobs.one.contactLastJob" />
-                                  <label 
-                                    for="jobOneContactJob-yes" 
-                                    ng-class="{'checked': vm.application.jobs.one.contactLastJob == 'yes'}"></label>
-                                </div>
-
-                                <div class="custom-radio right">
-                                  <span>No</span>
-                                  <input 
-                                    type="radio" 
-                                    value="no" 
-                                    id="jobOneContactJob-no" 
-                                    name="jobOneMayWeContact"
-                                    ng-model="vm.application.jobs.one.contactLastJob" />
-                                  <label 
-                                    for="jobOneContactJob-no" 
-                                    ng-class="{'checked': vm.application.jobs.one.contactLastJob == 'no'}"></label>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        
-                        <!-- Job number 2 -->
-
-                        <div class="row">
-                            <div class="column small-16">
-                                <span class="label-like pad-b-10">Job #2</span>
-                            </div>
-                        </div>
-
-                        <div class="row no-margin">
-                            
-                            <div class="column large-5 medium-5 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.company.length >= 1}">Company</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Company"
-                                    name="JobsOneCompany"
-                                    ng-model="vm.application.jobs.two.company">
-                            </div>
-
-                            <div class="column large-4 medium-4 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.supervisor.length >= 1}">Supervisor's Name</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Supervisor's Name"
-                                    name="JobsOneSupervisor"
-                                    ng-model="vm.application.jobs.two.supervisor">
-                            </div>
-
-                            <div class="column large-3 medium-3 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.phone.length >= 1}">Telephone</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Telephone"
-                                    name="JobsOnePhone"
-                                    ng-model="vm.application.jobs.two.phone">
-                            </div>
-
-                            <div class="column large-2 medium-2 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.from.length >= 1}">From</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="From"
-                                    name="JobsOneFrom"
-                                    ng-model="vm.application.jobs.two.from"
-                                    class="date-picker"
-                                    readonly="true" 
-                                    date>
-                            </div>
-
-                            <div class="column large-2 medium-2 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.to.length >= 1}">To</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="To"
-                                    name="JobsOneTo"
-                                    ng-model="vm.application.jobs.two.to"
-                                    date 
-                                    readonly="true" 
-                                    class="date-picker">
-                            </div>
-
-
-                        </div>
-
-                        <div class="row no-margin">
-                            
-                            <div class="column large-5 medium-5 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.address.length >= 1}">Address</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Address"
-                                    name="JobsOneAddress"
-                                    ng-model="vm.application.jobs.two.address">
-                            </div>
-
-                           <div class="column large-4 medium-4 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.city.length >= 1}">City</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="City"
-                                    name="JobsOneCity"
-                                    ng-model="vm.application.jobs.two.city">
-                            </div>
-
-                            <div class="column large-3 medium-2 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.state.length >= 1}">State</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="State"
-                                    name="JobsOneStatezip"
-                                    ng-model="vm.application.jobs.two.state">
-                            </div>
-
-                            <div class="column large-2 medium-3 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.zip.length >= 1}">Zip</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Zip"
-                                    name="JobsOneZiplastwage"
-                                    ng-model="vm.application.jobs.two.zip">
-                            </div>
-
-                            <div class="column large-2 medium-2 small-8 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.lastwage.length >= 1}">Last Wage</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="last Wage"
-                                    name="JobsOne"
-                                    ng-model="vm.application.jobs.two.lastwage">
-                            </div>
-                        </div>
-
-                        <div class="row no-margin">
-                            
-                            <div class="column large-8 medium-8 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.jobdetails.length >= 1}">What did you do?</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="What did you do?"
-                                    name="JobsOneJobDetails"
-                                    ng-model="vm.application.jobs.two.jobdetails">
-                            </div>
-
-                           <div class="column large-8 medium-8 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.jobs.two.leaveReason.length >= 1}">Why did you leave</label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Why did you leave?"
-                                    name="JobsOneLeaveReason"
-                                    ng-model="vm.application.jobs.two.leaveReason">
-                            </div>
-
-                        </div>
-
-                        <div class="row no-margin">
-                            
-                            <div class="column medium-8 small-16 age-confirm">
-                                <span class="q">Q.</span>If currently employed, may we contact? 
-                            </div>
-
-                            <div class="column medium-8 small-16 age-confirm">
-                                
-                                <div class="custom-radio right">
-                                  <span>Yes</span>
-                                  <input 
-                                    type="radio" 
-                                    value="yes" 
-                                    id="jobTwoContactJob-yes" 
-                                    name="jobTwoMayWeContact"
-                                    ng-model="vm.application.jobs.two.contactLastJob" />
-                                  <label 
-                                    for="jobTwoContactJob-yes" 
-                                    ng-class="{'checked': vm.application.jobs.two.contactLastJob == 'yes'}"></label>
-                                </div>
-
-                                <div class="custom-radio right">
-                                  <span>No</span>
-                                  <input 
-                                    type="radio" 
-                                    value="no" 
-                                    id="jobTwoContactJob-no" 
-                                    name="jobTwoMayWeContact"
-                                    ng-model="vm.application.jobs.two.contactLastJob" />
-                                  <label 
-                                    for="jobTwoContactJob-no" 
-                                    ng-class="{'checked': vm.application.jobs.two.contactLastJob == 'no'}"></label>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="row no-margin">
-
-                            <div class="column large-3 medium-4 small-10 right">
-                                <button ng-click="vm.nextStep(4, null)" class="button expand next">Next<span><i class="fa fa-angle-right"></i></span></button>
-                            </div>
-                            <div class="column medium-3 small-6 right">
-                                <button ng-click="vm.backStep(4)" class="button expand back"><span><i class="fa fa-angle-left"></i></span>Back</button>
-                            </div>
-
-                        </div>
-
-                        </div>
-
-                    </div> 
+    <div class="column small-16 apply-section">   
+        
+        <header>
+            Two most recent jobs
+        </header>
+        
+        <div class="apply-section-body">
+            
+            <div class="row">
+                <div class="column small-16">
+                    <span class="label-like pad-b-10">Job #1</span>
                 </div>
             </div>
+
+            <div class="row no-margin">
+                
+                <div class="column large-5 medium-5 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.company.length >= 1}">Company</label>
+                    <input 
+                        type="text" 
+                        placeholder="Company"
+                        name="JobsOneCompany"
+                        ng-model="vm.application.jobs.one.company">
+                </div>
+
+                <div class="column large-4 medium-4 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.supervisor.length >= 1}">Supervisor's Name</label>
+                    <input 
+                        type="text" 
+                        placeholder="Supervisor's Name"
+                        name="JobsOneSupervisor"
+                        ng-model="vm.application.jobs.one.supervisor">
+                </div>
+
+                <div class="column large-3 medium-3 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.phone.length >= 1}">Telephone</label>
+                    <input 
+                        type="text" 
+                        placeholder="Telephone"
+                        name="JobsOnePhone"
+                        ng-model="vm.application.jobs.one.phone">
+                </div>
+
+                <div class="column large-2 medium-2 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.from.length >= 1}">From</label>
+                    <input 
+                        type="text" 
+                        placeholder="From"
+                        name="JobsOneFrom"
+                        ng-model="vm.application.jobs.one.from"
+                        date 
+                        readonly="true" 
+                        class="date-picker">
+                </div>
+
+                <div class="column large-2 medium-2 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.to.length >= 1}">To</label>
+                    <input 
+                        type="text" 
+                        placeholder="To"
+                        name="JobsOneTo"
+                        ng-model="vm.application.jobs.one.to"
+                        date 
+                        readonly="true" 
+                        class="date-picker">
+                </div>
+
+
+            </div>
+
+            <div class="row no-margin">
+                
+                <div class="column large-5 medium-5 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.address.length >= 1}">Address</label>
+                    <input 
+                        type="text" 
+                        placeholder="Address"
+                        name="JobsOneAddress"
+                        ng-model="vm.application.jobs.one.address">
+                </div>
+
+               <div class="column large-4 medium-4 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.city.length >= 1}">City</label>
+                    <input 
+                        type="text" 
+                        placeholder="City"
+                        name="JobsOneCity"
+                        ng-model="vm.application.jobs.one.city">
+                </div>
+
+                <div class="column large-3 medium-2 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.state.length >= 1}">State</label>
+                    <input 
+                        type="text" 
+                        placeholder="State"
+                        name="JobsOneStatezip"
+                        ng-model="vm.application.jobs.one.state">
+                </div>
+
+                <div class="column large-2 medium-3 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.zip.length >= 1}">Zip</label>
+                    <input 
+                        type="text" 
+                        placeholder="Zip"
+                        name="JobsOneZiplastwage"
+                        ng-model="vm.application.jobs.one.zip">
+                </div>
+
+                <div class="column large-2 medium-2 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.lastwage.length >= 1}">Last Wage</label>
+                    <input 
+                        type="text" 
+                        placeholder="last Wage"
+                        name="JobsOne"
+                        ng-model="vm.application.jobs.one.lastwage">
+                </div>
+            </div>
+
+            <div class="row no-margin">
+                
+                <div class="column large-8 medium-8 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.jobdetails.length >= 1}">What did you do?</label>
+                    <input 
+                        type="text" 
+                        placeholder="What did you do?"
+                        name="JobsOneJobDetails"
+                        ng-model="vm.application.jobs.one.jobdetails">
+                </div>
+
+               <div class="column large-8 medium-8 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.one.leaveReason.length >= 1}">Why did you leave</label>
+                    <input 
+                        type="text" 
+                        placeholder="Why did you leave?"
+                        name="JobsOneLeaveReason"
+                        ng-model="vm.application.jobs.one.leaveReason">
+                </div>
+
+            </div>
+
+            <div class="row no-margin">
+                
+                <div class="column medium-8 small-16 age-confirm">
+                    <span class="q">Q.</span>If currently employed, may we contact? 
+                </div>
+
+                <div class="column medium-8 small-16 age-confirm">
+                    
+                    <div class="custom-radio right">
+                      <span>Yes</span>
+                      <input 
+                        type="radio" 
+                        value="yes" 
+                        id="jobOneContactJob-yes" 
+                        name="jobOneMayWeContact"
+                        ng-model="vm.application.jobs.one.contactLastJob" />
+                      <label 
+                        for="jobOneContactJob-yes" 
+                        ng-class="{'checked': vm.application.jobs.one.contactLastJob == 'yes'}"></label>
+                    </div>
+
+                    <div class="custom-radio right">
+                      <span>No</span>
+                      <input 
+                        type="radio" 
+                        value="no" 
+                        id="jobOneContactJob-no" 
+                        name="jobOneMayWeContact"
+                        ng-model="vm.application.jobs.one.contactLastJob" />
+                      <label 
+                        for="jobOneContactJob-no" 
+                        ng-class="{'checked': vm.application.jobs.one.contactLastJob == 'no'}"></label>
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <!-- Job number 2 -->
+
+            <div class="row">
+                <div class="column small-16">
+                    <span class="label-like pad-b-10">Job #2</span>
+                </div>
+            </div>
+
+            <div class="row no-margin">
+                
+                <div class="column large-5 medium-5 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.company.length >= 1}">Company</label>
+                    <input 
+                        type="text" 
+                        placeholder="Company"
+                        name="JobsOneCompany"
+                        ng-model="vm.application.jobs.two.company">
+                </div>
+
+                <div class="column large-4 medium-4 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.supervisor.length >= 1}">Supervisor's Name</label>
+                    <input 
+                        type="text" 
+                        placeholder="Supervisor's Name"
+                        name="JobsOneSupervisor"
+                        ng-model="vm.application.jobs.two.supervisor">
+                </div>
+
+                <div class="column large-3 medium-3 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.phone.length >= 1}">Telephone</label>
+                    <input 
+                        type="text" 
+                        placeholder="Telephone"
+                        name="JobsOnePhone"
+                        ng-model="vm.application.jobs.two.phone">
+                </div>
+
+                <div class="column large-2 medium-2 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.from.length >= 1}">From</label>
+                    <input 
+                        type="text" 
+                        placeholder="From"
+                        name="JobsOneFrom"
+                        ng-model="vm.application.jobs.two.from"
+                        class="date-picker"
+                        readonly="true" 
+                        date>
+                </div>
+
+                <div class="column large-2 medium-2 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.to.length >= 1}">To</label>
+                    <input 
+                        type="text" 
+                        placeholder="To"
+                        name="JobsOneTo"
+                        ng-model="vm.application.jobs.two.to"
+                        date 
+                        readonly="true" 
+                        class="date-picker">
+                </div>
+
+
+            </div>
+
+            <div class="row no-margin">
+                
+                <div class="column large-5 medium-5 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.address.length >= 1}">Address</label>
+                    <input 
+                        type="text" 
+                        placeholder="Address"
+                        name="JobsOneAddress"
+                        ng-model="vm.application.jobs.two.address">
+                </div>
+
+               <div class="column large-4 medium-4 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.city.length >= 1}">City</label>
+                    <input 
+                        type="text" 
+                        placeholder="City"
+                        name="JobsOneCity"
+                        ng-model="vm.application.jobs.two.city">
+                </div>
+
+                <div class="column large-3 medium-2 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.state.length >= 1}">State</label>
+                    <input 
+                        type="text" 
+                        placeholder="State"
+                        name="JobsOneStatezip"
+                        ng-model="vm.application.jobs.two.state">
+                </div>
+
+                <div class="column large-2 medium-3 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.zip.length >= 1}">Zip</label>
+                    <input 
+                        type="text" 
+                        placeholder="Zip"
+                        name="JobsOneZiplastwage"
+                        ng-model="vm.application.jobs.two.zip">
+                </div>
+
+                <div class="column large-2 medium-2 small-8 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.lastwage.length >= 1}">Last Wage</label>
+                    <input 
+                        type="text" 
+                        placeholder="last Wage"
+                        name="JobsOne"
+                        ng-model="vm.application.jobs.two.lastwage">
+                </div>
+            </div>
+
+            <div class="row no-margin">
+                
+                <div class="column large-8 medium-8 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.jobdetails.length >= 1}">What did you do?</label>
+                    <input 
+                        type="text" 
+                        placeholder="What did you do?"
+                        name="JobsOneJobDetails"
+                        ng-model="vm.application.jobs.two.jobdetails">
+                </div>
+
+               <div class="column large-8 medium-8 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.jobs.two.leaveReason.length >= 1}">Why did you leave</label>
+                    <input 
+                        type="text" 
+                        placeholder="Why did you leave?"
+                        name="JobsOneLeaveReason"
+                        ng-model="vm.application.jobs.two.leaveReason">
+                </div>
+
+            </div>
+
+            <div class="row no-margin">
+                
+                <div class="column medium-8 small-16 age-confirm">
+                    <span class="q">Q.</span>If currently employed, may we contact? 
+                </div>
+
+                <div class="column medium-8 small-16 age-confirm">
+                    
+                    <div class="custom-radio right">
+                      <span>Yes</span>
+                      <input 
+                        type="radio" 
+                        value="yes" 
+                        id="jobTwoContactJob-yes" 
+                        name="jobTwoMayWeContact"
+                        ng-model="vm.application.jobs.two.contactLastJob" />
+                      <label 
+                        for="jobTwoContactJob-yes" 
+                        ng-class="{'checked': vm.application.jobs.two.contactLastJob == 'yes'}"></label>
+                    </div>
+
+                    <div class="custom-radio right">
+                      <span>No</span>
+                      <input 
+                        type="radio" 
+                        value="no" 
+                        id="jobTwoContactJob-no" 
+                        name="jobTwoMayWeContact"
+                        ng-model="vm.application.jobs.two.contactLastJob" />
+                      <label 
+                        for="jobTwoContactJob-no" 
+                        ng-class="{'checked': vm.application.jobs.two.contactLastJob == 'no'}"></label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row no-margin">
+
+                <div class="column large-3 medium-4 small-10 right">
+                    <button ng-click="vm.nextStep(4, null)" class="button expand next">Next<span><i class="fa fa-angle-right"></i></span></button>
+                </div>
+                <div class="column medium-3 small-6 right">
+                    <button ng-click="vm.backStep(4)" class="button expand back"><span><i class="fa fa-angle-left"></i></span>Back</button>
+                </div>
+
+            </div>
+
+            </div>
+
+        </div> 
+    </div>
+</div>

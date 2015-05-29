@@ -1,0 +1,57 @@
+<div class="notify-bar" ng-show="vm.showErrorMsg"></div>
+
+
+<div class="row login-header">
+    <div class="column small-offset-4 small-8 text-center">
+        <img src="images/logo_svg.svg">
+    </div>
+</div>
+        
+<div class="row">
+    <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated" ng-class="{'shake': vm.emailError}">
+        <label ng-class="{'show-label': vm.email.length >= 1}">Email Address</label>
+        <input 
+            type="text" 
+            placeholder="E-mail Address"
+            ng-model="vm.email">
+    </div>
+</div>
+<div class="row">
+    <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated" ng-class="{'shake': vm.passwordError}">
+        <label ng-class="{'show-label': vm.password.length >= 1}">Password</label>
+        <input 
+            type="text" 
+            placeholder="Password"
+            ng-model="vm.password">
+    </div>
+</div>
+<div class="row">
+    <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated">
+        <span class="slide-down-error-msg">Error Msg here</span>
+    </div>
+</div>
+<div class="row">
+    <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 animated">
+        <button type="submit" ng-click="vm.submit()" class="button expand login">Log In</button>
+    </div>
+</div>
+
+<div class="row modal" ng-show="vm.showModalError">
+    
+    <div class="column large-10 large-offset-3 medium-10 medium-offset-3 small-14 small-offset-1 modal-container animated slideInDown">
+        
+        <header>Oh No.... </header>
+
+        <div class="err-msg">
+            {{ vm.errorMsg }}
+        </div>
+        
+        <div class="row no-margin">
+            <div class="select-dropdown-close">
+                <div class="column medium-5 small-16 right">
+                  <button ng-click="vm.showModalError = false; vm.showOverlay = false" class="button expand submit-application">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

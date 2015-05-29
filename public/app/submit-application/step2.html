@@ -1,5 +1,5 @@
 <!-- Like to do at taco bell -->
-<div class="row animated fadeInUp">
+<div class="row">
     
     <div class="step-info">
         Step <span class="highlight-bold">2</span> of 5
@@ -12,73 +12,139 @@
         </header>
         
         <div class="apply-section-body">
-            
-            <div class="row">
-                <div class="column small-16">
-                    <span class="label-like">Positions</span>
+        
+        <div class="row">
+            <div class="column small-16">
+                <span class="label-like pad-b-10">Positions</span>
+            </div>
+        </div>
+
+
+        <div class="row no-margin">
+        
+            <div class="column medium-16 small-8">
+    
+                <!-- Management -->
+                <div class="row no-margin job-positions">
+                    <div class="custom-check column large-4 medium-4 small-16 input-group">
+                      <span>General Store Manager</span>
+                      <input 
+                        type="checkbox"  
+                        id="store-manager" 
+                        name="" 
+                        ng-model="vm.application.positions['General Store Manager']"
+                        />
+                      <label 
+                        for="store-manager" 
+                        ng-class="{'checked': vm.application.positions['General Store Manager']}"></label>
+                    </div>
+
+                    <div class="custom-check column large-4 medium-4 small-16 input-group">
+                      <span>Sr. Assistant Manager</span>
+                      <input 
+                        type="checkbox"  
+                        id="sr-assistant-manager" 
+                        name="" 
+                        ng-model="vm.application.positions['Sr Assistant Manager']"
+                        />
+                      <label 
+                        for="sr-assistant-manager" 
+                        ng-class="{'checked': vm.application.positions['Sr Assistant Manager']}"></label>
+                    </div>
+
+                    <div class="custom-check column large-4 medium-4 small-16 input-group">
+                      <span>Assistant Manager</span>
+                      <input 
+                        type="checkbox" 
+                        id="assistant-manager" 
+                        name="" 
+                        ng-model="vm.application.positions['Assistant Manager']"
+                        />
+                      <label 
+                        for="assistant-manager" 
+                        ng-class="{'checked': vm.application.positions['Assistant Manager']}"></label>
+                    </div>
+
+                    <div class="custom-check column large-4 medium-4 small-16 input-group">
+                      <span>Shift Manager</span>
+                      <input 
+                        type="checkbox" 
+                        id="shift-manager" 
+                        ng-model="vm.application.positions['Shift Manager']"
+                        />
+                      <label 
+                        for="shift-manager" 
+                        ng-class="{'checked': vm.application.positions['Shift Manager']}"></label>
+                    </div>
+
                 </div>
             </div>
+            <div class="column medium-16 small-8">
+                 <div class="row no-margin job-positions">
+                    <div class="custom-check column large-4 medium-4 small-16 input-group">
+                      <span>Cleaning Captain</span>
+                      <input 
+                        type="checkbox"  
+                        id="cleaning-captain" 
+                        name="" 
+                        ng-model="vm.application.positions['Cleaning Captain']"
+                        />
+                      <label 
+                        for="cleaning-captain" 
+                        ng-class="{'checked': vm.application.positions['Cleaning Captain']}"></label>
+                    </div>
 
-            <div class="row no-margin job-positions">
-                    
-                <div class="custom-check column large-4 medium-4 small-16 input-group">
-                  <span>Crew Member</span>
-                  <input 
-                    type="checkbox"  
-                    id="crew-member" 
-                    name="" 
-                    ng-model="vm.application.jobPreferences.positions.crewMember"/>
-                  <label 
-                    for="crew-member" 
-                    ng-class="{'checked': vm.application.jobPreferences.positions.crewMember}"></label>
+                    <div class="custom-check column large-4 medium-4 small-16 input-group">
+                      <span>Team Trainer</span>
+                      <input 
+                        type="checkbox"  
+                        id="team-trainer" 
+                        name="" 
+                        ng-model="vm.application.positions['Team Trainer']"
+                        />
+                      <label 
+                        for="team-trainer" 
+                        ng-class="{'checked': vm.application.positions['Team Trainer']}"></label>
+                    </div>
+
+                    <div class="custom-check column large-4 medium-4 small-16 input-group">
+                      <span>Team Member</span>
+                      <input 
+                        type="checkbox" 
+                        id="team-member" 
+                        name="" 
+                        ng-model="vm.application.positions['Team Member']"
+                        />
+                      <label 
+                        for="team-member" 
+                        ng-class="{'checked': vm.application.positions['Team Member']}"></label>
+                    </div>
+
+                    <div class="custom-check column large-4 medium-4 small-16 input-group">
+                      <span>Other</span>
+                      <input 
+                        type="checkbox" 
+                        id="other" 
+                        name="other" 
+                        ng-model="vm.application.positions['Other']"
+                        />
+                      <label 
+                        for="other" 
+                        ng-class="{'checked': vm.application.positions['Other']}"></label>
+                    </div>
                 </div>
-
-                <div class="custom-check column large-4 medium-4 small-16 input-group">
-                  <span>Shift Manager</span>
-                  <input 
-                    type="checkbox"  
-                    id="shift-manager" 
-                    name="" 
-                    ng-model="vm.application.jobPreferences.positions.shiftManager"/>
-                  <label 
-                    for="shift-manager" 
-                    ng-class="{'checked': vm.application.jobPreferences.positions.shiftManager}"></label>
-                </div>
-
-                <div class="custom-check column large-4 medium-4 small-16 input-group">
-                  <span>Store Manager</span>
-                  <input 
-                    type="checkbox" 
-                    id="store-manager" 
-                    name="" 
-                    ng-model="vm.application.jobPreferences.positions.storeManager"/>
-                  <label 
-                    for="store-manager" 
-                    ng-class="{'checked': vm.application.jobPreferences.positions.storeManager}"></label>
-                </div>
-
-                <div class="custom-check column large-4 medium-4 small-16 input-group">
-                  <span>Other</span>
-                  <input 
-                    type="checkbox" 
-                    id="other" 
-                    name="other" 
-                    ng-model="vm.application.jobPreferences.positions.other"/>
-                  <label 
-                    for="other" 
-                    ng-class="{'checked': vm.application.jobPreferences.positions.other}"></label>
-                </div>
-
             </div>
+        </div>
 
-            <div class="row pad-lr-15" ng-show="vm.application.jobPreferences.positions.other">
 
-                <div class="column medium-16 small-16 input-group">
+            <div class="row no-margin pad-top-15" ng-show="vm.application.positions['Other']">
+
+                <div class="column medium-16 small-16 input-group extra-padding">
                     <label>Other</label>
                     <input 
                         type="text" 
                         placeholder="Other Job Roles"
-                        ng-model="vm.application.jobPreferences.positions.otherRoles">
+                        ng-model="vm.application.positions.otherRoles">
                 </div>
 
             </div>
@@ -127,12 +193,14 @@
                     <label class="show-label">Location </label>
                     <span ng-click="vm.showLocationModal()" class="input-like"> 
                             <span ng-show="vm.selectedLocations.length === 0" class="placeholder-like">Click to Select A Store</span>
-                            <span ng-show="vm.selectedLocations.length === 1"><span class="location">{{vm.selectedLocations[0].st}}</span></span>
-                            <span ng-show="vm.selectedLocations.length > 1"><span class="location">{{vm.selectedLocations.length}} Locations Selected</span></span>
-                        </span>
+                            <span ng-show="vm.selectedLocations.length === 1">
+                                <span class="location">{{vm.selectedLocations[0].st}}</span>
+                            </span>
+                            <span ng-show="vm.selectedLocations.length > 1">
+                                <span class="location">{{vm.selectedLocations.length}} Locations Selected</span>
+                            </span>
                     </span>
                 </div>
-
 
             </div>
 
@@ -163,25 +231,25 @@
                      <div class="row avail-from">
                         <div class="column medium-2">From</div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="24" data-select="from" data-pairwith="1" datavalue="vm.avilabity.mon.from"></div>
+                            <div select-time data-starttime="5" data-endtime="24" data-select="from" data-pairwith="1" datavalue="vm.application.availability.mon.from" position="1"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="2" datavalue="vm.avilabity.tue.from"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="2" datavalue="vm.application.availability.tue.from" position="1"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="3" datavalue="vm.avilabity.wed.from"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="3" datavalue="vm.application.availability.wed.from" position="1"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="4" datavalue="vm.avilabity.thu.from"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="4" datavalue="vm.application.availability.thu.from" position="1"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="5" datavalue="vm.avilabity.fri.from"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="5" datavalue="vm.application.availability.fri.from" position="1"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="6" datavalue="vm.avilabity.sat.from"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="6" datavalue="vm.application.availability.sat.from" position="1"></div>
                         </div>
                         <div class="column medium-2 left">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="7" datavalue="vm.avilabity.sun.from"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="from" data-pairwith="7" datavalue="vm.application.availability.sun.from" position="1"></div>
                         </div>
              
                     </div>
@@ -192,25 +260,25 @@
                 
                         <div class="column medium-2">To</div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="28" data-select="to" data-pairwith="1" datavalue="vm.avilabity.mon.to"></div>
+                            <div select-time data-starttime="5" data-endtime="28" data-select="to" data-pairwith="1" datavalue="vm.application.availability.mon.to" position="2"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="2" datavalue="vm.avilabity.tue.to"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="2" datavalue="vm.application.availability.tue.to" position="2"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="3" datavalue="vm.avilabity.wed.to"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="3" datavalue="vm.application.availability.wed.to" position="2"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="4" datavalue="vm.avilabity.thu.to"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="4" datavalue="vm.application.availability.thu.to" position="2"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="5" datavalue="vm.avilabity.fri.to"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="5" datavalue="vm.application.availability.fri.to" position="2"></div>
                         </div>
                         <div class="column medium-2">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="6" datavalue="vm.avilabity.sat.to"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="6" datavalue="vm.application.availability.sat.to" position="2"></div>
                         </div>
                         <div class="column medium-2 left">
-                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="7" datavalue="vm.avilabity.sun.to"></div>
+                            <div select-time data-starttime="5" data-endtime="14" data-select="to" data-pairwith="7" datavalue="vm.application.availability.sun.to" position="2"></div>
                         </div>
                     </div>
 
@@ -221,7 +289,7 @@
                         <span class="highlight">*</span>
                         If your religious beliefs or practices prohibit you from working on a particular day or at a particular time, Taco Bell will make reasonable efforts to accommodate those beliefs or practices in accordance with applicable law. 
                         <br>
-                        <span class="highlight">*</span> Days you are not available to work please enter "<span class="highlight">N/A</span>" and days you can work any hours please enter "<span class="highlight">ANY</span>".</p>
+                        <span class="highlight">*</span> Days you are not available to work please enter "<span class="highlight">N/A</span>" and days you can work any hours please enter "<span class="highlight">ANY</span>".
                     </p>
                 </div>
 
@@ -301,20 +369,26 @@
             <div class="row no-margin">
 
                 <div class="column large-3 medium-4 small-10 right">
-                                <button ng-click="vm.nextStep(2, null)" class="button expand next">Next<span><i class="fa fa-angle-right"></i></span></button>
-                            </div>
-                            <div class="column medium-3 small-6 right">
-                                <button ng-click="vm.backStep(2)" class="button expand back"><span><i class="fa fa-angle-left"></i></span>Back</button>
-                            </div>
-
-                        </div>
+                    <button ng-click="vm.nextStep(2, null)" class="button expand next">Next
+                        <span><i class="fa fa-angle-right"></i></span>
+                    </button>
+                </div>
+                <div class="column medium-3 small-6 right">
+                    <button ng-click="vm.backStep(2)" class="button expand back">
+                        <span><i class="fa fa-angle-left"></i></span>Back
+                    </button>
+                </div>
 
             </div>
+
             
         </div>
 
     </div>
 
 </div>
+
+
+
 
 

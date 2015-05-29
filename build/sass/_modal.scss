@@ -1,9 +1,44 @@
-.select-dropdown-container {
-    background: #F7F7F7;
+.modal {
+    position: relative;
+    background: none;
+    position: fixed;
+    z-index: 200;
+    top: 10%;
+    height: 40%;
 }
 
-.select-dropdown-close{
-    .submit-application {
-        margin: 0 0 20px 0;
+.modal-container {
+        padding-left: 15px;
+        background: #F7F7F7;
+
+        header {
+            height: 60px;
+            line-height: 60px;
+            margin: 0 auto;
+            background: transparent;
+            
+            color: $purple-light;
+        }
+
+        .err-msg {
+
+        }
+}
+
+.modal{
+  &.ng-hide-remove { 
+    visibility: hidden;
+    animation: 0.4s slideInDown;
+    animation-play-state: paused;
+    &.ng-hide-remove-active {
+      visibility: visible;
+      animation-play-state: running;
     }
+  }
+}
+
+
+.modal.ng-hide-add-active {
+  -webkit-animation: 0.5s slideOutUp; 
+  animation: 0.5s slideOutUp; 
 }

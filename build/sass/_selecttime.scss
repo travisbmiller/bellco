@@ -18,11 +18,13 @@
 
 .list-of-times {
     background: rgb(253, 253, 253);
-    position: absolute;
     z-index: 110 !important;
     box-shadow: 1px 1px 6px 2px #aaa;
-    top: -100px;
-    width: 125px;
+    position: fixed;
+    top: 30px;
+    left: 0px;
+    width: 100%;
+    height: 80%;
         
 
         header {
@@ -35,7 +37,7 @@
         ul {
             margin: 0;
             width: 100%;
-            height: 200px;
+            height: 100%;
             overflow: auto;
             position: relative;
             
@@ -79,3 +81,17 @@
         }
 
     }
+
+
+@media only screen and (min-width: 40.063em) {
+ .list-of-times {   
+    position: relative;
+    top: -100px;
+    left: 0px;
+    width: 125px;
+    height: 200px;
+}
+
+
+
+}

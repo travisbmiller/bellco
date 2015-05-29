@@ -3,7 +3,7 @@ angular
         .module('app')
         .directive('selectTime', selectTime);
 
-    function selectTime($timeout) {
+    function selectTime($timeout, $window) {
         var directive = {
             link: link,
             templateUrl: 'app/directives/selectTime/selectTime.html',
@@ -11,11 +11,16 @@ angular
             scope: {
                 datavalue: "=",
                 starttime: '=',
-                endtime: "="
+                endtime: "=",
+                position: "="
             },
             controller: function ($scope) {
-                $scope.time = $scope.datavalue;
-                //datavalue = $scope.time;
+                //$scope.time = $scope.datavalue;
+                datavalue = $scope.time;
+                
+                $scope.testclick = function () {
+                    console.log("working")
+                }
             }
         };
     
@@ -24,18 +29,35 @@ angular
         function link(scope, element, attrs) {
             var id = attrs.pairwith;
             
-
             // hide list when loaded
             $( ".list-of-times").hide();
             
             // Click Events
             $(  element ).on('click', ".display-time", function () {
-        
+                
+                //Grab vh and set hight of modal
+                var vh = $(window).height();
+                vh -= 100;
+                vh + "px";
+
+                // Grab Window Width
+                var vw = $(window).width();
+
+                // Setting CSS if Mobile
+                if (vw < 640) {
+                    
+                    $('.list-of-times').css({
+                        height: vh, 
+                        left: "20px",
+                        top: "50px",
+                        width: (vw - 40) + "px"});
+                }
+
                 // show list
                 $( element ).find(".list-of-times").toggle();
             })
 
-            $( element ).on('click', 'li', function() {
+            $(  element ).on('click', 'li', function() {
             
                 // Change text to selected time
                 scope.time = $(this).text();
@@ -46,16 +68,10 @@ angular
                 // Hide list of times
                 $( element ).find(".list-of-times").toggle();
 
-                // Update Scope
-                $timeout(function () {
-                    scope.$apply();
-                }, 0)
-
-
-
                 // If N/A was Selected
                 if (scope.datavalue === "N/A") {
-                   $( '[data-pairwith|=' + id + ']' + '[data-select|="to"]').find(".display-time").val("N/A");
+                    $( '[data-pairwith|=' + id + ']' + '[data-select|="to"]').find("input").val("N/A");
+                    $( '[data-pairwith|=' + id + ']' + '[data-select|="to"]').trigger( "change" );
                 } else 
 
                 // Update available time on paired "to"
@@ -85,12 +101,33 @@ angular
 
 
                 }
-                
+                 
+                 // Update Scope
+                $timeout(function () {
+                    //console.log("calling scope.apply")
+                    scope.$apply();
+                }, 0)
+
                
             });
+
+
+            // On Change Event for iput val for "to", when updated by clicking on "N/A" on from
+            $( '[data-pairwith|=' + id + ']' + '[data-select|="to"]').on( "change", function () {
+                
+                if (scope.position === 2) {
+                    // Grabbing new set value and updating parent scope
+                    scope.datavalue = $( '[data-pairwith|=' + id + ']' + '[data-select|="to"]').find("input").val();
+                    
+                    $timeout(function () {
+                        scope.$apply();
+                        
+                    }, 0)
+                }
+            });
+        
             
-            
-            // Add times
+            // Add times based of of Attr value
             function addTime (i, el) {
                 
                 var prefix = " AM";
@@ -101,47 +138,25 @@ angular
                 } if ( i >= 25 ) {
                     prefix = " AM";
                     i = i - 24;
-                    console.log("yes and i is now ", i)
                 }
                 
-
+                // Create new element
                 var newElement = '<li class="time">' + i + prefix + '</li>';
             
+                // Add new element
                 $( el ).find(".times").append(newElement);
-
-                
-                
             }
+            
             function load () {
-    
+                // Calling add time based of the value of start time and end time
                 for (var i = scope.starttime; i < scope.endtime; i++) {  
                     addTime(i, element) 
                 }
-               
             }
 
-            
             load();
-           
-            
-
-            
-                 
-            // $timeout(function () {
-            //     alert("calling apply")
-            //     scope.$apply();
-            // }, 100)
-            
-
 
         }
     }
 
 })();
-
-// Event - click on element 
-    // 1) Drop list of times
-        // Event - Click on a Time
-            // 1) replace element with selected time
-
-// 8

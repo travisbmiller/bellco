@@ -1,131 +1,131 @@
 <!-- Mis. Info -->
-            <div class="row animated fadeInUp">
-                
-                <div class="step-info">
-                    Step <span class="highlight-bold">5</span> of 5
+<div class="row animated fadeInUp">
+    
+    <div class="step-info">
+        Step <span class="highlight-bold">5</span> of 5
+    </div>
+
+    <div class="column small-16 apply-section">   
+        
+        <header>
+            Miscellaneous Information
+        </header>
+        <form name="step5" ng-submit="vm.submit(vm.application)" novalidate>
+        <div class="apply-section-body">
+            
+            <div class="row no-margin">
+                    
+                <div class="column small-16">
+                  <span class="question"><span class="q">Q.</span>Do you have reliable transportation to get to work?</span>
                 </div>
 
-                <div class="column small-16 apply-section">   
-                    
-                    <header>
-                        Miscellaneous Information
-                    </header>
-                    <form name="step5" ng-submit="vm.nextStep(5, step5.$valid)" novalidate>
-                    <div class="apply-section-body">
-                        
-                        <div class="row no-margin">
-                                
-                            <div class="column small-16">
-                              <span class="question"><span class="q">Q.</span>Do you have reliable transportation to get to work?</span>
-                            </div>
+                <div class="column small-16 height-50 mar-b-20">
+                  
+                    <div class="custom-radio right">
+                      <span>Yes</span>
+                      <input 
+                        type="radio" 
+                        value="yes" 
+                        id="transportation-yes" 
+                        name="transportation" 
+                        ng-model="vm.application.questions.transportation" />
+                      <label 
+                        for="transportation-yes"
+                        ng-class="{'checked': vm.application.questions.transportation == 'yes'}"></label>
+                    </div>
 
-                            <div class="column small-16 height-50 mar-b-20">
-                              
-                                <div class="custom-radio right">
-                                  <span>Yes</span>
-                                  <input 
-                                    type="radio" 
-                                    value="yes" 
-                                    id="transportation-yes" 
-                                    name="transportation" 
-                                    ng-model="vm.application.mis.transportation" />
-                                  <label 
-                                    for="transportation-yes"
-                                    ng-class="{'checked': vm.application.mis.transportation == 'yes'}"></label>
-                                </div>
+                    <div class="custom-radio right">
+                      <span>No</span>
+                      <input 
+                        type="radio" 
+                        value="no" 
+                        id="transportation-no" 
+                        name="transportation" 
+                        ng-model="vm.application.questions.transportation" />
+                      <label 
+                        for="transportation-no" 
+                        ng-class="{'checked': vm.application.questions.transportation == 'no'}"></label>
 
-                                <div class="custom-radio right">
-                                  <span>No</span>
-                                  <input 
-                                    type="radio" 
-                                    value="no" 
-                                    id="transportation-no" 
-                                    name="transportation" 
-                                    ng-model="vm.application.mis.transportation" />
-                                  <label 
-                                    for="transportation-no" 
-                                    ng-class="{'checked': vm.application.mis.transportation == 'no'}"></label>
-
-            
-                                </div>
-
-                            </div>
-                            
-                            <hr class="line">
-
-                            <div class="column small-16">
-                              <span class="question"><span class="q">Q.</span>If hired, can you show proof of your legal right to work in the United States?</span>
-                            </div>
-
-                            <div class="column small-16 height-50 mar-b-20">
-                              
-                                <div class="custom-radio right">
-                                  <span>Yes</span>
-                                  <input 
-                                    type="radio" 
-                                    value="yes" 
-                                    id="show-proof-yes" 
-                                    name="show-proof" 
-                                    ng-model="vm.application.mis.showProof"/>
-                                  <label 
-                                    for="show-proof-yes" 
-                                    ng-class="{'checked': vm.application.mis.showProof == 'yes'}"></label>
-                                </div>
-
-                                <div class="custom-radio right">
-                                  <span>No</span>
-                                  <input 
-                                    type="radio" 
-                                    value="no" 
-                                    id="show-proof-no" 
-                                    name="show-proof" 
-                                    ng-model="vm.application.mis.showProof"/>
-                                  <label 
-                                    for="show-proof-no" 
-                                    ng-class="{'checked': vm.application.mis.showProof == 'no'}"></label>
-                                </div>
-
-                            </div>
-
-                            <hr class="line">
-
-                            <div class="column large-10 medium-10 small-16 height-50">
-                              <span class="question"><span class="q">Q.</span>If hired, when could you begin work?</span>
-                            </div>
-
-                            <div class="column large-4 medium-4 small-16 input-group">
-                                <label ng-class="{'show-label': vm.application.mis.startDate.length >= 1}">Start Date</label>
-                                <input 
-                                    type='text' 
-                                    placeholder="Start Date"
-                                    name="StartDate"
-                                    ng-model="vm.application.mis.startDate"
-                                    required
-                                    date 
-                                    readonly="true" 
-                                    class="date-picker"
-                                    required
-                                    ng-class="{ 'has-error' : step5.StartDate.$invalid && vm.submittedStep5 }"
-                                    >
-                            </div>
-
-                        </div>
-
-                        <div class="row no-margin">
-
-                            <div class="column large-3 medium-4 small-10 right">
-                                <button type="submit" class="button expand next">Next<span><i class="fa fa-angle-right"></i></span></button>
-                            </div>
-                            <div class="column medium-3 small-6 right">
-                                <button ng-click="vm.backStep(5)" class="button expand back"><span><i class="fa fa-angle-left"></i></span>Back</button>
-                            </div>
-
-                        </div>
-
-                        </div>
 
                     </div>
-                    </form>
+
+                </div>
+                
+                <hr class="line">
+
+                <div class="column small-16">
+                  <span class="question"><span class="q">Q.</span>If hired, can you show proof of your legal right to work in the United States?</span>
+                </div>
+
+                <div class="column small-16 height-50 mar-b-20">
+                  
+                    <div class="custom-radio right">
+                      <span>Yes</span>
+                      <input 
+                        type="radio" 
+                        value="yes" 
+                        id="show-proof-yes" 
+                        name="show-proof" 
+                        ng-model="vm.application.questions.showProof"/>
+                      <label 
+                        for="show-proof-yes" 
+                        ng-class="{'checked': vm.application.questions.showProof == 'yes'}"></label>
+                    </div>
+
+                    <div class="custom-radio right">
+                      <span>No</span>
+                      <input 
+                        type="radio" 
+                        value="no" 
+                        id="show-proof-no" 
+                        name="show-proof" 
+                        ng-model="vm.application.questions.showProof"/>
+                      <label 
+                        for="show-proof-no" 
+                        ng-class="{'checked': vm.application.questions.showProof == 'no'}"></label>
+                    </div>
+
+                </div>
+
+                <hr class="line">
+
+                <div class="column large-10 medium-10 small-16 height-50">
+                  <span class="question"><span class="q">Q.</span>If hired, when could you begin work?</span>
+                </div>
+
+                <div class="column large-4 medium-4 small-16 input-group">
+                    <label ng-class="{'show-label': vm.application.questions.startDate.length >= 1}">Start Date</label>
+                    <input 
+                        type='text' 
+                        placeholder="Start Date"
+                        name="questions.StartDate"
+                        ng-model="vm.application.questions.startDate"
+                        required
+                        date 
+                        readonly="true" 
+                        class="date-picker"
+                        required
+                        ng-class="{ 'has-error' : step5.questions.StartDate.$invalid && vm.submittedStep5 }"
+                        >
                 </div>
 
             </div>
+
+            <div class="row no-margin">
+
+                <div class="column large-3 medium-4 small-10 right">
+                    <button type="submit" class="button expand next">Submit Application<span><i class="fa fa-angle-right"></i></span></button>
+                </div>
+                <div class="column medium-3 small-6 right">
+                    <button ng-click="vm.backStep(5)" class="button expand back"><span><i class="fa fa-angle-left"></i></span>Back</button>
+                </div>
+
+            </div>
+
+            </div>
+
+        </div>
+        </form>
+    </div>
+
+</div>

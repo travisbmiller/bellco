@@ -1,39 +1,534 @@
+<div id='overlay' ng-show="vm.showOverlay" ng-click="vm.closeOverlay()"></div>
 <div class='row'>
     <div class="column small-16 nav no-pad">
-        <img ng-click="vm.addOne()" src="images/tacobell_logo.png">
+         <img src="images/tacobell_logo.png">
     </div>
 </div>
 <div class="row">
-    <div class="column small-16 no-pad title-bar">
-        <div class="date-section">
-            <span class="date-range"><i class="fa fa-clock-o"></i>LAST 30 DAYS</span>
-        </div>
-    </div>
+    <div class="column small-16 no-pad title-bar"></div>
 </div>
-    
+<div class="view-container">    
+<!-- body header & display filters -->    
+<div class="row filter-container">
 
-    <div class="column small-16 table-header">
-        
+    <div class="column medium-14 medium-offset-1 small-16">
         <div class="row no-margin">
-            <div class="column small-offset-1 small-2">NAME</div>
+            
+            <div class="column small-4 results-container">
+                <span class="results-text"> Showing <span> {{ vm.data.length }} </span> results </span>
+            </div>
+            
+            
+
+            <div class="column medium-3 small-4 right no-pad-right">
+                <div class="filters-containers">
+                    <div 
+                        class="filter-display" 
+                        ng-class="{'tab-open': vm.showFilterDate}" 
+                        ng-click="vm.showFilter('showFilterDate')">
+                        <span class="title">Date Range</span>
+                        <span class="display" ng-show="vm.dateFilter !== 'dateRange'"> {{ vm.dateFilter }}</span>
+                        <span class="display-date-from" ng-show="vm.dateFilter == 'dateRange'"> 
+                            <span class="date-style">From:</span> 
+                            <span ng-hide="vm.dateRange.from == 'From'">{{ vm.dateRange.from }}</span> 
+                        </span>
+                        <span class="display-date-to" ng-show="vm.dateFilter == 'dateRange'"> 
+                            <span class="date-style">To:</span> 
+                            <span ng-hide="vm.dateRange.to == 'To'">{{ vm.dateRange.to }}</span> 
+                    </div>
+                    <div class="filter-stores-dropdown"  ng-show="vm.showFilterDate">
+                        <form name="date-filter" novalidate>
+                       
+                            <div class="filter-dropdown-container" ng-style="vm.setHeight && {'height': vm.wHeight}" || {'height': 'auto'}> 
+                            
+                                <div class="filter-title">Select Date Range</div> 
+                                
+                                <div class="filter-options">
+
+                                    <div class="input-group">
+                                        <div class="custom-radio">
+                                          <span>To Day</span>
+                                          <input 
+                                            type="radio" 
+                                            value="To Day" 
+                                            id="date-current-day" 
+                                            name="age"
+                                            ng-model="vm.dateFilter" />
+                                          <label 
+                                            for="date-current-day"
+                                            ng-class="{'checked': vm.dateFilter == 'To Day'}"
+                                             >
+                                        </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <div class="custom-radio">
+                                            <span>Last 7 Days</span>
+                                            <input 
+                                                type="radio" 
+                                                value="Last 7 Days" 
+                                                id="date-last-7" 
+                                                name="age"
+                                                ng-model="vm.dateFilter" />
+                                            <label 
+                                                for="date-last-7" 
+                                                ng-class="{'checked': vm.dateFilter == 'Last 7 Days'}">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <div class="custom-radio">
+                                            <span>Last 30 Days</span>
+                                            <input 
+                                                type="radio" 
+                                                value="Last 30 Days" 
+                                                id="date-last-30" 
+                                                name="age"
+                                                ng-model="vm.dateFilter" />
+                                            <label 
+                                                for="date-last-30"
+                                                ng-class="{'checked': vm.dateFilter == 'Last 30 Days'}"
+                                                 ng-click="vm.logThis(vm.dateFilter)">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <div class="custom-radio">
+                                            <span>Date Range</span>
+                                            <input 
+                                                type="radio" 
+                                                value="dateRange" 
+                                                id="date-range" 
+                                                name="age"
+                                                ng-model="vm.dateFilter" />
+                                            <label 
+                                                for="date-range" 
+                                                ng-class="{'checked': vm.dateFilter == 'dateRange'}"
+                                                ng-click="vm.logThis(vm.dateFilter)">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Date Range Inputs -->
+                                     <div ng-show="vm.dateFilter == 'dateRange'">   
+                                        <div class="input-group no-margin">
+                                            <input 
+                                                type='text' 
+                                                placeholder="Form"
+                                                name="dateRange.from"
+                                                ng-model="vm.dateRange.from"
+                                                required
+                                                readonly="true" 
+                                                date
+                                                class="date-picker">
+                                        </div>
+                                        <div class="input-group no-margin">
+                                            <input 
+                                                type='text' 
+                                                placeholder="To"
+                                                name="dateRange.to"
+                                                ng-model="vm.dateRange.to"
+                                                required
+                                                date
+                                                readonly="true" 
+                                                class="date-picker">
+                                        </div>
+
+                                    </div>
+                                
+                                </div>
+
+                                <div class="filter-close">
+                                    <button class="expand btn-close" ng-click="vm.showFilter('showFilterDate')">Filter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="column medium-3 small-4 right no-pad-right">
+                
+                <div class="filters-containers">
+                    <div 
+                        class="filter-display" 
+                        ng-click="vm.showFilter('showFilterPosition')"
+                        ng-class="{'tab-open': vm.showFilterPosition}">
+                        <span class="title">Positions</span>
+                        <span ng-show="vm.positions['all']" class="display">ALL</span>
+                        <span ng-show="!vm.positions['all']" class="display">{{ vm.selectedPositions }} Selected</span>
+                    </div>
+                    
+                    <div class="filter-stores-dropdown" ng-show="vm.showFilterPosition">
+                        
+                        <div class="filter-dropdown-container" ng-style="vm.setHeight && {'height': vm.wHeight}" || {'height': 'auto'}> 
+                        
+                            <div class="filter-title">Select Positions</div> 
+                            
+                            <div class="filter-options">
+
+                                <div class="custom-check input-group">
+                                    <span>All Positions </span>
+                                    <input 
+                                        type="checkbox"  
+                                        id="all-positions" 
+                                        name="" 
+                                        ng-model="vm.positions.all"
+                                        />
+                                    <label 
+                                        for="all-positions" 
+                                        ng-class="{'checked': vm.positions.all}"
+                                        ng-click="vm.clickAllPositions()">
+                                    </label>
+                                </div>
+
+                                <div class="label-like">Management</div>
+                                <div class="custom-check input-group">
+                                    <span>General Store Manager</span>
+                                    <input 
+                                        type="checkbox"  
+                                        id="store-manager" 
+                                        name="" 
+                                        ng-model="vm.positions['General Store Manager']"
+                                        />
+                                    <label 
+                                        for="store-manager" 
+                                        ng-class="{'checked': vm.positions['General Store Manager']}"
+                                        ng-click='vm.selectPosition("positions.General Store Manager")'>
+                                    </label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Sr. Assistant Manager</span>
+                                  <input 
+                                    type="checkbox"  
+                                    id="sr-assistant-manager" 
+                                    name="" 
+                                    ng-model="vm.positions['Sr Assistant Manager']"
+                                    />
+                                  <label 
+                                    for="sr-assistant-manager" 
+                                    ng-class="{'checked': vm.positions['Sr Assistant Manager']}"
+                                    ng-click='vm.selectPosition("positions.Sr Assistant Manager")'>
+                                </label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Assistant Manager</span>
+                                  <input 
+                                    type="checkbox" 
+                                    id="assistant-manager" 
+                                    name="" 
+                                    ng-model="vm.positions['Assistant Manager']"
+                                    />
+                                  <label 
+                                    for="assistant-manager" 
+                                    ng-class="{'checked': vm.positions['Assistant Manager']}"
+                                    ng-click='vm.selectPosition("positions.Assistant Manager")'></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Shift Manager</span>
+                                  <input 
+                                    type="checkbox" 
+                                    id="shift-manager" 
+                                    ng-model="vm.positions['Shift Manager']"
+                                    />
+                                  <label 
+                                    for="shift-manager" 
+                                    ng-class="{'checked': vm.positions['Shift Manager']}"
+                                    ng-click='vm.selectPosition("positions.Shift Manager")'></label>
+                                </div>
+
+                                 <div class="label-like">Non-Management</div>
+
+                                <div class="custom-check input-group">
+                                  <span>Cleaning Captain</span>
+                                  <input 
+                                    type="checkbox"  
+                                    id="cleaning-captain" 
+                                    name="" 
+                                    ng-model="vm.positions['Cleaning Captain']"
+                                    />
+                                  <label 
+                                    for="cleaning-captain" 
+                                    ng-class="{'checked': vm.positions['Cleaning Captain']}"
+                                    ng-click='vm.selectPosition("positions.Cleaning Captain")'></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Team Trainer</span>
+                                  <input 
+                                    type="checkbox"  
+                                    id="team-trainer" 
+                                    name="" 
+                                    ng-model="vm.positions['Team Trainer']"
+                                    />
+                                  <label 
+                                    for="team-trainer" 
+                                    ng-class="{'checked': vm.positions['Team Trainer']}"
+                                    ng-click='vm.selectPosition("positions.Team Trainer")'></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Team Member</span>
+                                  <input 
+                                    type="checkbox" 
+                                    id="team-member" 
+                                    name="" 
+                                    ng-model="vm.positions['Team Member']"
+                                    />
+                                  <label 
+                                    for="team-member" 
+                                    ng-class="{'checked': vm.positions['Team Member']}"
+                                    ng-click='vm.selectPosition("positions.Team Member")'></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Other</span>
+                                  <input 
+                                    type="checkbox" 
+                                    id="other" 
+                                    name="other" 
+                                    ng-model="vm.positions['Other']"
+                                    />
+                                  <label 
+                                    for="other" 
+                                    ng-class="{'checked': vm.positions['Other']}"
+                                    ng-click='vm.selectPosition("positions.Other")'></label>
+                                </div>
+                            </div>
+
+                            
+                            <div class="filter-close">
+                                <button 
+                                    class="expand btn-close" 
+                                    ng-click="vm.showFilter('showFilterPosition')">Filter
+                                </button>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column medium-3 small-4 right no-pad-right">
+                <div class="filters-containers">
+                    <div 
+                        class="filter-display" 
+                        ng-click="vm.showFilter('showFilterStores')"
+                        ng-class="{'tab-open': vm.showFilterStores}">
+                        <span class="title">Stores</span>
+                        <span ng-show="vm.location['all']" class="display">ALL</span>
+                        <span ng-show="!vm.location['all']" class="display">{{ vm.selectedStores }} Selected</span>
+                    </div>
+                    <div class="filter-stores-dropdown" ng-show="vm.showFilterStores">
+                        
+                        <div class="filter-dropdown-container" ng-style="vm.setHeight && {'height': vm.wHeight}" || {'height': '150px'}> 
+                            
+                            <div class="filter-title">Select Stores</div> 
+                            
+                            <div class="filter-options">
+                            
+                                <div class="custom-check input-group">
+                                  <span>All Stores </span>
+                                  <input 
+                                    type="checkbox"  
+                                    id="all-stores" 
+                                    name="" 
+                                    ng-model="vm.location['all']"
+                                    />
+                                  <label 
+                                    for="all-stores" 
+                                    ng-class="{'checked': vm.location['all']}"
+                                    ng-click="vm.clickAllStores('location')"></label>
+                                </div>
+
+                                <div class="label-like">West Stores</div>
+
+                                <div class="custom-check input-group">
+                                  <span>Mohawk - 371 </span>
+                                  <input 
+                                    type="checkbox"  
+                                    id="371" 
+                                    name="" 
+                                    ng-model="vm.location[371]"
+                                    />
+                                  <label 
+                                    for="371" 
+                                    ng-class="{'checked': vm.location[371]}"
+                                    ng-click="vm.selectStore(371)"></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Main St - 1421 </span>
+                                  <input 
+                                    type="checkbox"  
+                                    id="1421" 
+                                    name="" 
+                                    ng-model="vm.location[1421]"
+                                    />
+                                  <label 
+                                    for="1421" 
+                                    ng-class="{'checked': vm.location[1421]}"
+                                    ng-click="vm.selectStore(1421)"></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Albany - 17559</span>
+                                  <input 
+                                    type="checkbox" 
+                                    id="17559" 
+                                    name="" 
+                                    ng-model="vm.location[17559]"
+                                    />
+                                  <label 
+                                    for="17559" 
+                                    ng-class="{'checked': vm.location[17559]}"
+                                    ng-click="vm.selectStore(17559)"></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Albany - 16630</span>
+                                  <input 
+                                    type="checkbox" 
+                                    id="16630" 
+                                    ng-model="vm.location[16630]"
+                                    />
+                                  <label 
+                                    for="16630" 
+                                    ng-class="{'checked': vm.location[16630]}"
+                                    ng-click="vm.selectStore(16630)"></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Lebanon - 19827</span>
+                                  <input 
+                                    type="checkbox"  
+                                    id="19827" 
+                                    name="" 
+                                    ng-model="vm.location[19827]"
+                                    />
+                                  <label 
+                                    for="19827" 
+                                    ng-class="{'checked': vm.location[19827]}"
+                                    ng-click="vm.selectStore(19827)"></label>
+                                </div>
+
+                                <div class="label-like">East Stores</div>
+
+                                <div class="custom-check input-group">
+                                  <span>Redmond - 17701</span>
+                                  <input 
+                                    type="checkbox"  
+                                    id="17701" 
+                                    name="" 
+                                    ng-model="vm.location[17701]"
+                                    />
+                                  <label 
+                                    for="17701" 
+                                    ng-class="{'checked': vm.location[17701]}"
+                                    ng-click="vm.selectStore(17701)"></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Lapine - 20155</span>
+                                  <input 
+                                    type="checkbox" 
+                                    id="20155" 
+                                    name="" 
+                                    ng-model="vm.location[20155]"
+                                    />
+                                  <label 
+                                    for="20155" 
+                                    ng-class="{'checked': vm.location[20155]}"
+                                    ng-click="vm.selectStore(20155)"></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Madras - 26037</span>
+                                  <input 
+                                    type="checkbox" 
+                                    id="other" 
+                                    name="26037" 
+                                    ng-model="vm.location[26037]"
+                                    />
+                                  <label 
+                                    for="26037" 
+                                    ng-class="{'checked': vm.location[26037]}"
+                                    ng-click="vm.selectStore(26037)"></label>
+                                </div>
+
+                                <div class="custom-check input-group">
+                                  <span>Prinevile - 26037</span>
+                                  <input 
+                                    type="checkbox" 
+                                    id="26037" 
+                                    name="other" 
+                                    ng-model="vm.location[26037]"
+                                    />
+                                  <label 
+                                    for="26037" 
+                                    ng-class="{'checked': vm.location[26037]}"></label>
+                                </div>
+
+                            </div>
+
+                            <div class="filter-close">
+                                <button 
+                                    class="expand btn-close" 
+                                    ng-click="vm.showFilter('showFilterStores')">Filter
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+</div>
+
+<div class="row">   
+    
+    <div class="column medium-14 medium-offset-1 small-16 display-table">
+        <!-- Header -->
+        <div class="row no-margin t-header">
+            <div class="column large-2 small-3">DATE</div>
+            <div class="column large-3 small-4">NAME</div>
+            <div class="column small-4">LOCATION</div>
+            <div class="column left large-7 small-5">POSITION</div>
         </div>
-
-    </div>
-</div>
-
-<div class="row">
-    
-    <div class="column  small-offset-1 small-13 bar">
-        MON 27  Travis B Miller
-    </div>
-    
-
-</div>
-<div class="row">
-    
-    <div class="column  small-offset-1 small-13 bar">
-       TUE 28 Haley M Watkins 
-    </div>
         
-
+        <!-- Data Rows -->
+        <div class="row no-margin t-row" ng-repeat="application in vm.data | orderBy: 'submittedAt' :true" ng-click="vm.goToDoc(application._id)">
+            <div class="column large-2 small-3">{{application.submittedAt | date}}</div>
+            <div class="column large-3 small-4">{{application.firstName}} {{application.lastName}} </div>
+            <div class="column large-4 small-4">
+                <div class="number-box-container">
+                    <span class="number-box">{{application.preferredLocation.length}}</span> 
+                </div>
+                <div class="positions-text">
+                    <span ng-repeat="location in application.preferredLocation"> {{location}} </span>
+                </div>
+            </div>
+            <div class="column left large-7 small-5"> 
+                <div class="number-box-container">
+                    <span class="number-box" ng-bind="vm.getCount(application.positions)"></span> 
+                </div>
+                <div class="positions-text">
+                    <span ng-repeat="(key, value) in application.positions"><span ng-show="$index !== 0">,</span> {{ key }}</span>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</div>
 </div>

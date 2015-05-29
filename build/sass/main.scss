@@ -15,6 +15,15 @@ $dark:              #494949;
 * {
     box-sizing:border-box;
 }
+.test-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
 
 body {
   background: $graybg-color;
@@ -68,6 +77,8 @@ ul {
 .pad-r-5 {padding-right: 5px;}
 .pad-r-15 {padding-right: 15px;}
 .pad-r-20 {padding-right: 20px;}
+
+.pad-lr-15 {padding: 0 15px;}
 
 // No Padding
 .no-pad-right {padding-right: 0;}
@@ -158,6 +169,7 @@ ul {
         color: $font-main;
         margin-right: 10px;
         background: #F7F7F7;
+        border-radius: 0;
 
       &:focus {
           border: 1px solid #730FCB;
@@ -218,7 +230,7 @@ ul {
     border-radius: 0;
     // padding-left: 30%;
 }
-
+@import '_modal';
 @import '_selecttime';
 @import '_checkbox';
 @import '_radio';
@@ -234,6 +246,7 @@ ul {
     margin: 0 auto;
     padding: 0 !important;
     line-height: 0 !important;
+    opacity: 1;
 }
 
 
@@ -241,17 +254,20 @@ ul {
 #overlay {
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
   min-height: 100%;
   background: rgba(0,0,0,0.4);
+  z-index: 10;
 }
 
 @import 'print';
 
 
 #ui-datepicker-div {
-  
+  z-index: 600 !important;
   .ui-datepicker-header {
       border: none;
       background: #9013FE;
@@ -333,5 +349,60 @@ ul {
         font-size: 0.8rem;
       } 
     }
+  }
+}
+
+
+
+
+
+  
+// .views.ng-enter         { animation: scaleUp 0.5s both ease-in; }
+// .views.ng-leave         { transform-origin: 0% 0%; animation: rotateFall 1s both ease-in; }
+
+// .select-dropdown-container.ng-hide-remove { -webkit-animation: slideIn 0.3s; }
+// .select-dropdown-container.ng-hide-add { animation: slideOutUp 0.1s; }
+
+
+.select-dropdown-container {
+  &.ng-hide-remove { 
+    visibility: hidden;
+    animation: 0.4s slideInDown;
+    animation-play-state: paused;
+    &.ng-hide-remove-active {
+      visibility: visible;
+      animation-play-state: running;
+    }
+  }
+}
+
+
+.select-dropdown-container.ng-hide-add-active {
+  -webkit-animation: 0.5s slideOutUp; 
+  animation: 0.5s slideOutUp; 
+}
+
+// #overlay.ng-hide-remove.ng-hide-remove-active {
+//   -webkit-animation: fadeIn 0.3s;
+//   animation: fadeIn 0.3s;
+// }
+  
+// #overlay.ng-hide-add {
+//   -webkit-animation: fadeOut 0.8s;
+//   animation: fadeOut 0.8s;
+// }
+
+#overlay {
+  &.ng-hide-remove { 
+    visibility: hidden;
+    animation: 0.6s fadeIn;
+    animation-play-state: paused;
+    &.ng-hide-remove-active {
+      visibility: visible;
+      animation-play-state: running;
+    }
+  }
+  &.ng-hide-add {
+    animation: 0.6s  fadeOut; 
   }
 }

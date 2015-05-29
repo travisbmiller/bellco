@@ -1,6 +1,8 @@
 input[type=checkbox] {visibility: hidden;}
 input[type=checkbox]:checked + label:after {opacity: 1;}  
-input[type=radio]:hover + label:after {opacity: 1;}  
+//input[type=checkbox]:hover + label:after {opacity: 1;}  
+input[type=checkbox]:hover + label { 
+  background: #eee;} 
 
 .custom-check {
     position: relative;
@@ -21,7 +23,8 @@ input[type=radio]:hover + label:after {opacity: 1;}
         top: 0;
         left: 0;
         background: #F7F7F7;
-        border-radius: 0px;
+        -webkit-border-radius: 0px !important;
+        border-radius: 0px !important;
         opacity: 1;
         
         &:after {
@@ -43,12 +46,12 @@ input[type=radio]:hover + label:after {opacity: 1;}
           transform:         rotate(-45deg);
         }
 
-        &:hover::after {
-          opacity: 1;
-          border: 3px solid #730FCB;
-          border-top: none;
-          border-right: none;
-        }
+        // &:hover::after {
+        //   opacity: 1;
+        //   border: 3px solid #730FCB;
+        //   border-top: none;
+        //   border-right: none;
+        // }
     }
 
 
