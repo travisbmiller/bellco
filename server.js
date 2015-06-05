@@ -51,7 +51,8 @@ passport.use(new LocalStrategy({
         console.log('User found with: ', user);
 
         if (!user) {
-            return done(null, false, { message: 'Incorrect username.' });
+            var msg ="no user"
+            return done(msg, false, { message: 'Incorrect username.' });
         }
 
         user.comparePassword(password).then(function(isMatch) {
