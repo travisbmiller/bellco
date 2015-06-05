@@ -1,0 +1,138 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:400,700,900");
+
+#submit-slide-up-panel {
+    height: 100%;
+    width: 100%;
+    background: #EEE;
+    margin: 0 !important;
+    padding: 0;
+
+    .name {
+        display: block;
+        padding-bottom: 10px;
+    }
+
+    .now-what {
+        padding-top: 20px;
+        
+        .icon-container {
+            height: 40px;
+        }
+
+        .text-container {
+            height: 40px;
+            padding-left: 10px;
+            line-height: 40px;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            font-family: "Lato";
+            color: #666;
+        }
+    }
+
+
+    h1, h2,h3,h4 {
+      font-family: "Lato";
+    }
+
+    h1 {
+      padding-top: 50px;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      font-weight: 800;
+      color: #6206B3;
+      //animation: fadein-slideup ease 1s;
+      &.ng-hide-remove { 
+        visibility: hidden;
+        animation: fadein-slideup ease 1s;
+        animation-play-state: paused;
+        &.ng-hide-remove-active {
+          visibility: visible;
+          animation-play-state: running;
+        }
+      }
+    }
+
+    h2 {
+      display: inline-block;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+      color: #666;
+      //animation: fadein-slidedown ease 1s;
+      &.ng-hide-remove { 
+        visibility: hidden;
+        animation: fadein-slidedown ease 1s;
+        animation-play-state: paused;
+        &.ng-hide-remove-active {
+          visibility: visible;
+          animation-play-state: running;
+        }
+      }
+       
+    }
+
+    h4 {
+      padding-top: 20px;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: #666;
+      //animation: fadein-slideup ease 2s; 
+      &.ng-hide-remove { 
+        visibility: hidden;
+        animation: fadein-slideup ease 2s; 
+        animation-play-state: paused;
+        &.ng-hide-remove-active {
+          visibility: visible;
+          animation-play-state: running;
+        }
+      }
+    }
+
+    
+}
+
+@media only screen and (min-width: 40.063em) {
+    #submit-slide-up-panel {
+        h1 {
+            padding-top: 100px;
+        }
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        h4 {
+          font-size: 1.2rem;
+        }
+    }
+    
+}
+
+
+
+@keyframes fadein-slideup {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadein-slidedown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// #submit-slide-up-panel.ng-enter {
+//     animation: fadein-slideup ease 2s;
+// }
