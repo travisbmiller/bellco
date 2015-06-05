@@ -209,17 +209,22 @@
         }
 
         vm.addLocation = function (location, id) {
-            //console.log(location)
-            //console.log(id)
-
+            console.log("clicked")
+            console.log(location)
+            console.log(vm.application.preferredLocation);
             for (var i = 0; i < vm.selectedLocations.length; i++) {
                 if (vm.selectedLocations[i] === location) {
-                    return vm.selectedLocations.splice(i, 1);
-
+                    console.log(vm.selectedLocations)
+                    vm.selectedLocations.splice(i, 1);
+                    vm.application.preferredLocation.splice(vm.application.preferredLocation.indexOf(id), 1);
+                    console.log(vm.application.preferredLocation);
+                    return
                 }
             }
             vm.application.preferredLocation.push(id)
             vm.selectedLocations.push(location) 
+            console.log(vm.selectedLocations)
+            console.log(vm.application.preferredLocation);
         };
 
         vm.addPosition = function (position) {
