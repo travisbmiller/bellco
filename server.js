@@ -6,6 +6,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+console.log("testing evn - ", process.env.PORT)
+
+
 // Controllers
 var Applications = require('./api/controllers/applicationCtrl');
 var User = require('./api/controllers/UserCtrl');
@@ -13,7 +16,8 @@ var User = require('./api/controllers/UserCtrl');
 // Model
 UserModel = require('./api/models/userModel');
 
-var port = 9001;
+var port = 80;
+app.set('port', process.env.PORT || port);
 
 mongoose.connect('mongodb://localhost/bellco');
 
