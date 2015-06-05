@@ -44,20 +44,20 @@ passport.use(new LocalStrategy({
 
   }, function(username, password, done) {
 
-    UserModel.findOne({ email: username })
-    .exec()
-    .then(function(user) {
+    UserModel.findOne({ email: username }, function(err, user) {
+         if (err) { 
+            console.log(err)
+            return done(err); 
+        }
         
         console.log('User found with: ', user);
 
         if (!user) {
-            var msg ="no user"
-            return done(msg, false, { message: 'Incorrect username.' });
+            return done(null, false, { message: 'Incorrect username.' });
         }
 
         user.comparePassword(password).then(function(isMatch) {
 
-            console.log('isMatch: ', isMatch);
 
             if (!isMatch) {
                 return done(null, false, { message: 'Incorrect password.' });
