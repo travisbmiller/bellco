@@ -42,7 +42,7 @@ passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 
-  }, function(username, password, done) {
+  }, function(username, password, done, info) {
 
     UserModel.findOne({ email: username }, function(err, user) {
          if (err) { 
