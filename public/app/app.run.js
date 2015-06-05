@@ -8,7 +8,7 @@
     function run($rootScope) {
 
         $rootScope.$on('$stateChangeSuccess',function(){
-            $("html, body").animate({ scrollTop: 0 }, 400);
+            $("html, body").animate({ scrollTop: 0 }, 100);
         });
 
     }

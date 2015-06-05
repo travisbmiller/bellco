@@ -97,11 +97,13 @@
 
                 <div class="column large-3 medium-2 small-8 input-group">
                     <label ng-class="{'show-label': vm.application.jobs.one.state.length >= 1}">State</label>
-                    <input 
-                        type="text" 
-                        placeholder="State"
-                        name="JobsOneStatezip"
-                        ng-model="vm.application.jobs.one.state">
+                    <select 
+                        class="state" 
+                        ng-class="{ 'placeholder-font' : !vm.application.jobs.one.state}"
+                        ng-model="vm.application.jobs.one.state" 
+                        ng-options="state.st as state.name for state in vm.states">
+                        <option value="">State</option> 
+                    </select>
                 </div>
 
                 <div class="column large-2 medium-3 small-8 input-group">
@@ -269,11 +271,13 @@
 
                 <div class="column large-3 medium-2 small-8 input-group">
                     <label ng-class="{'show-label': vm.application.jobs.two.state.length >= 1}">State</label>
-                    <input 
-                        type="text" 
-                        placeholder="State"
-                        name="JobsOneStatezip"
-                        ng-model="vm.application.jobs.two.state">
+                    <select 
+                        class="state" 
+                        ng-class="{ 'placeholder-font' : !vm.application.jobs.two.state}"
+                        ng-model="vm.application.jobs.two.state" 
+                        ng-options="state.st as state.name for state in vm.states">
+                        <option value="">State</option> 
+                    </select>
                 </div>
 
                 <div class="column large-2 medium-3 small-8 input-group">
@@ -357,7 +361,7 @@
 
             <div class="row no-margin">
 
-                <div class="column large-3 medium-4 small-10 right">
+                <div class="column large-4 medium-4 small-10 right">
                     <button ng-click="vm.nextStep(4, null)" class="button expand next">Next<span><i class="fa fa-angle-right"></i></span></button>
                 </div>
                 <div class="column medium-3 small-6 right">

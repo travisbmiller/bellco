@@ -3,12 +3,12 @@ var Schema = mongoose.Schema;
 
 
 var userSchema = new Schema({
-    firstName: { type: String, required: true },
+    firstName: String,
     middleName: String,
-    lastName: { type: String, required: true },
+    lastName: String,
     preferredName: String,
-    email: { type: String, unique: true, require: true },
-    cellPhone: { type: String, require: true },
+    email: String,
+    cellPhone: String,
     homePhone: String,
     address: Object,
     questions: Object,

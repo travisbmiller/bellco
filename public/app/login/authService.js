@@ -20,7 +20,8 @@
             .catch(loginFailed);
 
             function loginComplete(response) {
-                $state.go('dashboard')
+                //console.log(response)
+                $state.go('dashboard',{id: response.data._id})
             }
 
             function loginFailed(error) {

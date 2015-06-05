@@ -20,14 +20,64 @@
         vm.application.positions = {};
         vm.selectedPositions = [];
         
+        vm.states = [
+            { st: "AK", name: "AK"},
+            { st: "AZ", name: "AZ"},
+            { st: "AR", name: "AR"},
+            { st: "CA", name: "CA"},
+            { st: "CO", name: "CO"},
+            { st: "CT", name: "CT"},
+            { st: "DE", name: "DE"},
+            { st: "DC", name: "DC"},
+            { st: "FL", name: "FL"},
+            { st: "GA", name: "GA"},
+            { st: "HI", name: "HI"},
+            { st: "ID", name: "ID"},
+            { st: "IL", name: "IL"},
+            { st: "IN", name: "IN"},
+            { st: "IA", name: "IA"},
+            { st: "KS", name: "KS"},
+            { st: "KY", name: "KY"},
+            { st: "LA", name: "LA"},
+            { st: "ME", name: "ME"},
+            { st: "MD", name: "MD"},
+            { st: "MA", name: "MA"},
+            { st: "MI", name: "MI"},
+            { st: "MN", name: "MN"},
+            { st: "MS", name: "MS"},
+            { st: "MO", name: "MO"},
+            { st: "MT", name: "MT"},
+            { st: "NE", name: "NE"},
+            { st: "NV", name: "NV"},
+            { st: "NH", name: "NH"},
+            { st: "NJ", name: "NJ"},
+            { st: "NM", name: "NM"},
+            { st: "NY", name: "NY"},
+            { st: "NC", name: "NC"},
+            { st: "ND", name: "ND"},
+            { st: "OH", name: "OH"},
+            { st: "OK", name: "OK"},
+            { st: "OR", name: "OR"},
+            { st: "PA", name: "PA"},
+            { st: "RI", name: "RI"},
+            { st: "SC", name: "SC"},
+            { st: "SD", name: "SD"},
+            { st: "TN", name: "TN"},
+            { st: "TX", name: "TX"},
+            { st: "UT", name: "UT"},
+            { st: "VT", name: "VT"},
+            { st: "VA", name: "VA"},
+            { st: "WA", name: "WA"},
+            { st: "WV", name: "WV"},
+            { st: "WI", name: "WI"},
+            { st: "WY", name: "WY"}
+        ]
+
         vm.showLocationModal = function () {
             vm.SelectStores = !vm.SelectStores;
             vm.showOverlay = !vm.showOverlay
         }
         
-        vm.changed = function () {
-            console.log("I just changed")
-        }
 
         vm.nextStep = function (num, boolan) {
             
@@ -72,16 +122,14 @@
         
 
         // Locations
-        vm.application.locations = {
-           371: 
+        vm.application.locations = [ 
                 {
                     checked: false,
                     city: "Springfield",
                     name: "Mohawk",
                     st: "1505 Mohawk Blvd",
                     id: 371
-                },
-            1421: 
+                }, 
                 {
                     checked: false,
                     city: "Springfield",
@@ -89,23 +137,20 @@
                     st: "4198 Main St",
                     id: 1421
                 },
-            16630: 
                 {
                     checked: false,
                     city: "Albany",
                     name: "West Albany",
                     st: "1835 Pacific Blvd SW",
                     id: 16630
-                },
-            17559: 
+                }, 
                 {
                     checked: false,
                     city: "Albany",
                     name: "K-Mart",
                     st: "200 Airport Rd SE",
                     id: 17559
-                },
-            19827: 
+                }, 
                 {
                     checked: false,
                     city: "Lebanon",
@@ -113,15 +158,13 @@
                     st: "12 E Airport Rd",
                     id: 19827
                 },
-            17701: 
                 {
                     checked: false,
                     city: "Redmond",
                     name: "Redmond",
                     st: "1214 S Hwy 97",
                     id: 17701
-                },
-            20155: 
+                }, 
                 {
                     checked: false,
                     city: "Lapine",
@@ -129,15 +172,23 @@
                     st: "16490 1st St",
                     id: 20155
                 },
-            26037: 
                 {
                     checked: false,
                     city: "Madras",
                     name: "Madras",
                     st: "44 SW 5th St",
                     id: 26037
+                },
+                {
+                    checked: false,
+                    city: "Prineville",
+                    name: "Prineville",
+                    st: "2042  NE 3rd Street",
+                    id: 311237
                 }
-        }
+        ];
+
+        
 
         vm.locationCheck = function (locations) {
             for (var prop in locations) {
@@ -158,6 +209,9 @@
         }
 
         vm.addLocation = function (location, id) {
+            //console.log(location)
+            //console.log(id)
+
             for (var i = 0; i < vm.selectedLocations.length; i++) {
                 if (vm.selectedLocations[i] === location) {
                     return vm.selectedLocations.splice(i, 1);
@@ -177,17 +231,29 @@
         };
 
         vm.submit = function (data) {
-            // $state.go('state2')
+            for(var prop in data.positions) {
+                if (!data.positions[prop]) delete data.positions[prop];
+            };
            
-            console.log(data)
+            // console.log(data)
             return $http.post("api/application", data)
                 .then(function (res) {
-                    console.log(res)
+                    // console.log("success")
+                    $state.go('submit-success')
                 }, function (err) {
-                    console.log(err)
+                    // console.log("err")
+                    // console.log(err)
+
+                    vm.showModalError = true;
+                    vm.showOverlay = true;
+                   
+                    vm.errorMsg = "There was an error trying to submit your application. If this error continues please check your Internet connect and try again at a later time."
+
                 })
 
         }
+
+
     }   
 
 

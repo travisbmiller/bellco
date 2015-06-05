@@ -14,34 +14,37 @@
         vm.showErrorMsg = false;
         vm.passwordError = false;
         vm.emailError = false;
-        console.log("Login controller")
+        //console.log("Login controller")
 
         vm.submit = function () {
-            console.log("hit submit")
+            //console.log("hit submit")
             
             var obj = {
                 email: vm.email,
                 password: vm.password
             }
-            console.log(obj)
+            //console.log(obj)
             authService.login(obj)
             .then(function (res) {
                 
                 if ( res == 1 ) {
-                    console.log("hit no user found")
+                    vm.showErrorMsg = true;
                     vm.emailError = true;
+                    vm.errMsg = "No user found by e-mail."
                     $timeout(function () {
                         vm.emailError = false;
-                    }, 1000)
+                        vm.showErrorMsg = false;
+                    }, 4000)
                 } 
                 else if ( res == 2) {
-                    console.log("hit")
+                    
                     vm.passwordError = true;
                     vm.showErrorMsg = true;
+                    vm.errMsg = "Password does not match username."
                     $timeout(function () {
                         vm.passwordError = false;
                         vm.showErrorMsg = false;
-                    }, 3000)
+                    }, 4000)
                 } 
 
                  

@@ -24,5 +24,14 @@ module.exports = {
             }
 
          });
+    },
+
+    getUser: function (req, res) {
+        var id = req.user._id
+        
+        User.findById(id, function (err, user) {
+            if (err) return res.sendStatus(404);
+            return res.json(user)
+        });
     }
 };

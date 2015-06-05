@@ -11,8 +11,6 @@
         var vm = this;
         vm.doc = {}
         vm.doc = docData.data
-        console.log(vm.doc)
-
         vm.animate = true;
         
         

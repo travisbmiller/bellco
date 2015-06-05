@@ -1,13 +1,15 @@
-<div class="notify-bar" ng-show="vm.showErrorMsg"></div>
+<div class="notify-bar" ng-show="vm.showErrorMsg">
+    <span class="err-msg">{{ vm.errMsg }}</span>
+</div>
 
 
 <div class="row login-header">
     <div class="column small-offset-4 small-8 text-center">
-        <img src="images/logo_svg.svg">
+        <img class="animated login1 bounceInUp" src="images/logo_svg.svg">
     </div>
 </div>
         
-<div class="row">
+<div class="row animated bounceInUp login2">
     <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated" ng-class="{'shake': vm.emailError}">
         <label ng-class="{'show-label': vm.email.length >= 1}">Email Address</label>
         <input 
@@ -16,21 +18,17 @@
             ng-model="vm.email">
     </div>
 </div>
-<div class="row">
+<div class="row animated bounceInUp login3">
     <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated" ng-class="{'shake': vm.passwordError}">
         <label ng-class="{'show-label': vm.password.length >= 1}">Password</label>
         <input 
-            type="text" 
+            type="password" 
             placeholder="Password"
             ng-model="vm.password">
     </div>
 </div>
-<div class="row">
-    <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated">
-        <span class="slide-down-error-msg">Error Msg here</span>
-    </div>
-</div>
-<div class="row">
+
+<div class="row animated bounceInUp login4">
     <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 animated">
         <button type="submit" ng-click="vm.submit()" class="button expand login">Log In</button>
     </div>

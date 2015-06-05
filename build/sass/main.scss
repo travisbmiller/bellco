@@ -142,6 +142,12 @@ ul {
   color: $purple-light;
 }
 
+.placeholder-font {
+    color: #666; //#C0BFBF;
+    font-weight: 300;
+    font-size: 0.8em;
+    font-family: $font-stack2;
+}
 
 .input-group {
     position: relative;
@@ -156,7 +162,9 @@ ul {
        
     }
 
-    input[type="text"] {
+
+
+    input[type="text"], input[type="password"] {
         width: 100%;
         height: 65px;
         //padding-top: 18px;
@@ -170,6 +178,8 @@ ul {
         margin-right: 10px;
         background: #F7F7F7;
         border-radius: 0;
+        -webkit-appearance:none;
+        -moz-appearance:none;
 
       &:focus {
           border: 1px solid #730FCB;
@@ -178,6 +188,27 @@ ul {
       &:disabled {
         background: #DEDEDE;
       }
+
+
+
+    }
+
+    select {
+     width: 100%;
+        height: 65px;
+        //padding-top: 18px;
+        padding-left: 15px;
+        outline: none;
+        border: none;
+        //border-bottom: 1px solid #C8C8C8;
+        font-size: 16px;
+        font-family: $font-stack;
+        color: $font-main;
+        margin-right: 10px;
+        background: #F7F7F7;
+        border-radius: 0;
+        -webkit-appearance:none;
+        -moz-appearance:none;
     }
 
     
@@ -230,12 +261,15 @@ ul {
     border-radius: 0;
     // padding-left: 30%;
 }
+
+@import '_submit-slide-up';
 @import '_modal';
 @import '_selecttime';
 @import '_checkbox';
 @import '_radio';
 @import '_select-dropdown';
 @import '_application';
+
 
 
 
@@ -355,13 +389,21 @@ ul {
 
 
 
-
+.views {
+  width: 100%;
+  height: 100%;
+}
   
-// .views.ng-enter         { animation: scaleUp 0.5s both ease-in; }
+.views.success.ng-enter { 
+  animation: 0.7s slideInUp; 
+}
+
+// .views.dash.ng-enter {
+//      animation: 0.7s slideInUp; 
+// }
 // .views.ng-leave         { transform-origin: 0% 0%; animation: rotateFall 1s both ease-in; }
 
-// .select-dropdown-container.ng-hide-remove { -webkit-animation: slideIn 0.3s; }
-// .select-dropdown-container.ng-hide-add { animation: slideOutUp 0.1s; }
+
 
 
 .select-dropdown-container {
@@ -382,15 +424,6 @@ ul {
   animation: 0.5s slideOutUp; 
 }
 
-// #overlay.ng-hide-remove.ng-hide-remove-active {
-//   -webkit-animation: fadeIn 0.3s;
-//   animation: fadeIn 0.3s;
-// }
-  
-// #overlay.ng-hide-add {
-//   -webkit-animation: fadeOut 0.8s;
-//   animation: fadeOut 0.8s;
-// }
 
 #overlay {
   &.ng-hide-remove { 

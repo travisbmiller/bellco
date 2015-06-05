@@ -5,6 +5,8 @@
     .module('app')
     .config(config);
 
+    config.$inject = ['$stateProvider', '$urlRouterProvider'];
+    
     function config($stateProvider, $urlRouterProvider) {
               
         $urlRouterProvider.otherwise("/");
@@ -31,7 +33,14 @@
               templateUrl: "./app/submit-application/step4.html",
             })
             .state('apply.step5', {
+              url: '/test1',
               templateUrl: "./app/submit-application/step5.html",
+            })
+            .state('submit-success', {
+              url: '/test2',
+              controllerAs: 'vm',
+              controller: 'submitSuccessController',
+              templateUrl: "./app/submit-application/success.html",
             })
 
 
@@ -41,8 +50,13 @@
               controllerAs: 'vm',
               controller: 'ViewDocument',
               resolve: {
-                docData: function ($stateParams, $http) {
+                docData: function ($stateParams, $http, $state) {
                   return $http.get('/api/application/' + $stateParams.id)
+                  .catch(function (err) {
+                    if ( err.data === "Not Authenticated" ) {
+                      $state.go('login')
+                    }
+                  })
                 }
               }
             })
@@ -51,7 +65,18 @@
               url: "/dash",
               templateUrl: "./app/dashboard/dash.html",
               controllerAs: 'vm',
-              controller: 'Dashboard'
+              controller: 'Dashboard',
+              resolve: {
+                user: function ($state, $stateParams, $http ) {
+                  return $http.get('/api/user/' + $stateParams.id)
+                    .then(function (data) {
+                        
+                    }, function (err) {
+                        //console.log('err ', err)
+                        $state.go('login')
+                    })
+                }
+              }
             
             })
             
@@ -63,5 +88,6 @@
             })
 
         }
+
 
 })();

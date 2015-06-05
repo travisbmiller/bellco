@@ -49,20 +49,20 @@ module.exports = {
         }); 
     },
     getBy: function (req, res) {
-        console.log("hitting get By Store Api")
-        console.log(req.body)
-        console.log(req.body.stores)
-        console.log(req.body.dateGTE)
-        console.log(req.body.dateLT)
-        console.log(req.body.positions)
+        // console.log("hitting get By Store Api")
+        // console.log(req.body)
+        // console.log(req.body.stores)
+        // console.log(req.body.dateGTE)
+        // console.log(req.body.dateLT)
+        // console.log(req.body.positions)
 
       Application.find({
          "preferredLocation":  
             { $in: req.body.stores }, 
          $or: req.body.positions,
          "submittedAt": {
-            $gte: req.body.dateGTE + "T00:00:00.000Z",
-            $lt: req.body.dateLT + "T00:00:00.000Z"
+            $gte: req.body.dateGTE,
+            $lt: req.body.dateLT
          }
       })
       .exec(function(err, applications) {

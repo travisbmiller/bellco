@@ -2220,11 +2220,10 @@ td {
 
 /* Default Link Styles */
 a {
-  color: #2ba6cb;
   text-decoration: none;
   line-height: inherit; }
-  a:hover, a:focus {
-    color: #258faf; }
+  /*a:hover, a:focus {
+    color: #258faf; }*/
   a img {
     border: none; }
 
@@ -2395,8 +2394,7 @@ blockquote {
     blockquote cite:before {
       content: "\2014 \0020"; }
     blockquote cite a,
-    blockquote cite a:visited {
-      color: #555555; }
+    }
 
 blockquote,
 blockquote p {
@@ -2981,7 +2979,7 @@ th.hide-for-touch {
 
   a,
   a:visited {
-    text-decoration: underline; }
+    text-decoration: none; }
 
   a[href]:after {
     content: " (" attr(href) ")"; }

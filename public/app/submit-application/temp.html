@@ -26,18 +26,19 @@
 
         <div class="row select-dropdown-content">
           
-            <div class="custom-check column medium-8 small-16 input-group" ng-repeat="location in vm.application.locations | orderBy: 'city'">
-              <span>{{location.name}} <span class="address"> - {{location.st}}</span></span>
+            <div class="custom-check column medium-8 small-16 input-group location" ng-repeat="location in vm.application.locations | orderBy: 'city' track by location.id">
+              <span>{{location.city}} <span class="address"> - {{location.st}}</span></span>
               <input 
                 type="checkbox" 
-                id="{{location.name}}" 
+                id="{{location.id}}" 
                 name="" 
-                ng-model="vm.application.locations[location.id].checked"/>
+                ng-model="vm.application.locations[location.name].checked"/>
               <label
                 class="lightgraybg"
                 ng-click="vm.addLocation(location, location.id)" 
-                for="{{location.name}}" 
-                ng-class="{'checked': vm.application.locations[{{location.id}}].checked }"></label>
+                for="{{location.id}}" 
+                ng-class="{'checked': vm.application.locations['location.name'].checked }"></label>
+                {{vm.application.locations[location.id]}}
             </div>
 
         </div>
@@ -70,4 +71,3 @@
         </div>
     </div>
 </div>
-

@@ -14,7 +14,7 @@
         <body ng-app="app">
             
             
-            <div class="views" ui-view></div>
+            <div class="views {{ vm.pageTitle }}" ui-view></div>
 
             
 
@@ -38,6 +38,7 @@
 
             <!-- App Controllers -->
             <script src="app/submit-application/applicationController.js"></script>
+            <script src="app/submit-application/submitSuccessController.js"></script>
             <script src="app/dashboard/dashboard.js"></script>
             <script src="app/document/Document.js"></script>
             <script src="app/login/Login.js"></script>
@@ -48,6 +49,10 @@
             <!-- App Directives -->
             <script src="app/directives/selectLocation/selectLocation.js"></script>
             <script src="app/directives/selectTime/selectTime.js"></script>
+
+            <!-- Libs -->
+            <script src="bower_components/angular-moment/angular-moment.js"></script>
+            <script src="bower_components/moment/moment.js"></script>
 
         </body>
     </html>

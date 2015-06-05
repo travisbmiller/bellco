@@ -81,14 +81,18 @@
                 </div>
 
                 <div class="column large-3 medium-2 small-8 input-group">
-                    <label ng-class="{'show-label': vm.application.address.state.length >= 1}">State</label>
-                    <input 
-                        type="text" 
-                        placeholder="State"
+                    <label ng-class="{'show-label': vm.application.address.state.length >= 1}">Zip</label>
+                    <select 
+                        class="state" 
+                        ng-class="{ 'placeholder-font' : !vm.application.address.state, 'has-error' : step1.state.$invalid && vm.submittedStep1}"
+                        
+                        ng-model="vm.application.address.state" 
+                        ng-options="state.st as state.name for state in vm.states"
                         name="state"
-                        ng-model="vm.application.address.state"
-                        required
-                        ng-class="{ 'has-error' : step1.state.$invalid && vm.submittedStep1 }">
+                        required>
+                        <option value="">State</option> 
+                    </select>
+
                 </div>
 
                 <div class="column large-2 medium-3 small-8 input-group">
@@ -189,7 +193,7 @@
 
             <!-- submit Button-->
             <div class="row no-margin">
-            <div class="column large-3 medium-4 small-10 right">
+            <div class="column large-4 medium-4 small-10 right">
                     <button  
                         type="submit"
                         class="button expand next">
