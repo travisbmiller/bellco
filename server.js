@@ -90,10 +90,7 @@ app.post('/api/login', passport.authenticate('local'), function(req, res) {
     res.status(200).json(req.user);
 });
 
-app.get('/logout', function(req, res) {
-  req.logout();
-  res.redirect('/#/login');
-});
+
 
 
 
@@ -102,10 +99,14 @@ app.get('/api/application/', Applications.get);
 app.get('/api/application/:id',loggedIn, Applications.getByID);
 app.get('/api/user/:id',loggedIn, User.getUser);
 
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/#/login');
+});
 
-// app.get('/api/isauth', loggedIn, function(req, res) { 
-//     res.status(res.user).end();
-// });
 app.listen(port, function () {
     console.log("Listing on port ", port)
 });
+
+//delete
+app.delete('/api/application/:id', Applications.deleteApp);
