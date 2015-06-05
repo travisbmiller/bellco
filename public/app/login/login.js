@@ -51,24 +51,7 @@
 
 
             }, function (err) {
-                if ( err.data == "Internal Server Error" ) {
-                    vm.showErrorMsg = true;
-                    vm.emailError = true;
-                    vm.errMsg = "No user found by e-mail."
-                    $timeout(function () {
-                        vm.emailError = false;
-                        vm.showErrorMsg = false;
-                    }, 4000)
-                } 
-                else if ( res == 2) {
-                    
-                    vm.passwordError = true;
-                    vm.showErrorMsg = true;
-                    vm.errMsg = "Password does not match username."
-                    $timeout(function () {
-                        vm.passwordError = false;
-                        vm.showErrorMsg = false;
-                    }, 4000)
+                console.log(err)
             })
             
         }
