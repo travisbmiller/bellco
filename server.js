@@ -42,7 +42,7 @@ passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 
-  }, function(username, password, done, info) {
+  }, function(username, password, done) {
 
     UserModel.findOne({ email: username }, function(err, user) {
          if (err) { 
@@ -89,7 +89,8 @@ app.post('/api/application', Applications.save);
 app.post('/api/application/filter', Applications.getBy);
 app.post('/api/user/new', User.newUser);
 
-app.post('/api/login', passport.authenticate('local'), function(req, res) {
+app.post('/api/login', function(req, res) {
+    passport.authenticate('local', function(err, user, info) {});
     res.status(200).json(req.user);
 });
 
