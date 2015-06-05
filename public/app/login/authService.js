@@ -25,6 +25,7 @@
             }
 
             function loginFailed(error) {
+                console.log(error)
                 return error.data;
             }
         }

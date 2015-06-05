@@ -25,6 +25,16 @@ module.exports = {
 
          });
     },
+    deleteApp: function (req, res) {
+      console.log("api delete")
+      var id = req.params.id;
+      Application.remove({ _id: id }, function(err, application) {
+
+            if (err) return res.status(500).json(err);
+            return res.status(200).json(application);
+
+        }); 
+    },
     getByID: function (req, res) {
         console.log("hitting get By ID Api")
 
