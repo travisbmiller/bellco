@@ -112,7 +112,7 @@ app.post('/api/login', function(req, res, next) {
     if (info) {
         console.log(info.message)
         if ( info.message === "Incorrect password." ) {
-        res.sendStatus(401).json(2);
+        return res.sendStatus(401).json(1);
         }    
     }
     // if (!user) { 
