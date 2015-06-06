@@ -91,7 +91,7 @@ app.post('/api/user/new', User.newUser);
 
 app.post('/api/login', passport.authenticate('local', function(err, user, info) {
     if (info) {
-        res.sendStatus(501).json(info)
+     console.log(info)   
     }
 }), function(req, res) {
     
