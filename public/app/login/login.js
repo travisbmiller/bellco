@@ -17,7 +17,7 @@
         //console.log("Login controller")
 
         vm.submit = function () {
-            //console.log("hit submit")
+            console.log("hit submit")
             
             var obj = {
                 email: vm.email,
@@ -46,12 +46,8 @@
                         vm.showErrorMsg = false;
                     }, 4000)
                 } 
-
-                 
-
-
             }, function (err) {
-                console.log(err)
+                console.log("hit")
             });
             
         }
