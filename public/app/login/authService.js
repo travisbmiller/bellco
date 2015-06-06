@@ -16,8 +16,7 @@
         function login(obj) {
             
             return $http.post('/api/login', obj)
-            .then(loginComplete)
-            .catch(loginFailed);
+            .then(loginComplete, loginFailed)
 
             function loginComplete(response) {
                 //console.log(response)
