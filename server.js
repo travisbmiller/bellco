@@ -89,8 +89,8 @@ app.post('/api/application', Applications.save);
 app.post('/api/application/filter', Applications.getBy);
 app.post('/api/user/new', User.newUser);
 
-app.post('/api/login', passport.authenticate('local', function(err, user, info) {
-    next(info);
+app.post('/api/login', passport.authenticate('local', function(err, user, info, done) {
+    done(null, info);
 }), function(req, res, info) {
     console.log(info)
     res.status(200).json(req.user);
