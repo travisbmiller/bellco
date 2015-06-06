@@ -26,7 +26,7 @@
             //console.log(obj)
             authService.login(obj)
             .then(function (res) {
-                
+                console.log(res)
                 if ( res == 1 ) {
                     vm.showErrorMsg = true;
                     vm.emailError = true;
@@ -52,7 +52,7 @@
 
             }, function (err) {
                 console.log(err)
-            })
+            });
             
         }
 
