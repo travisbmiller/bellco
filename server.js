@@ -102,7 +102,7 @@ app.post('/api/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     console.log("err ", err)
     console.log("user ", user)
-    console.log("user ", info)
+    console.log("user ", user)
 
     if (err) { 
         console.log("we had a error")
