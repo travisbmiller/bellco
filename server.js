@@ -96,16 +96,22 @@ app.post('/api/user/new', User.newUser);
 // }))
 
 app.post('/api/login', function(req, res, next) {
-
+    console.log("hit api");
+    console.log(req)
   // generate the authenticate method and pass the req/res
   passport.authenticate('local', function(err, user, info) {
     console.log("err ", err)
     console.log("user ", user)
     console.log("user ", info)
 
-    // if (err) { 
-    //     console.log("we had a error")
-    //     return next(err); }
+    if (err) { 
+        console.log("we had a error")
+        return next(err); 
+    }
+
+    if (info.message === "Incorrect password.") {
+        res.sendStatus(401).json(2);
+    }
     // if (!user) { 
     //     console.log("no user")
     //     return res.redirect('/'); }
