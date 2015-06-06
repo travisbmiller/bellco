@@ -19,7 +19,7 @@
             .then(loginComplete, loginFailed);
 
             function loginComplete(response) {
-                console.log(response.data._id)
+                // console.log(response.data._id)
                 $state.go('dashboard', {id: response.data._id})
             }
 

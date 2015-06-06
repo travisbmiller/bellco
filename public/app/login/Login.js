@@ -26,7 +26,7 @@
             //console.log(obj)
             authService.login(obj)
             .then(function (res) {
-                console.log(res)
+                // console.log(res)
                 if ( res == "Incorrect username." ) {
                     vm.showErrorMsg = true;
                     vm.emailError = true;
