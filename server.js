@@ -117,7 +117,7 @@ app.post('/api/login', function(req, res, next) {
 
     req.login(user, {}, function(err) {
                 if (err) { return next(err) };
-                return res.send("working";)
+                return res.send("working");
             });
 
     // console.log(req.user);
