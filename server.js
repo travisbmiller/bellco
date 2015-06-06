@@ -114,6 +114,8 @@ app.post('/api/login', function(req, res, next) {
         return res.status(401).json(info.message);
         
     }
+
+    res.status(200).json(req.user);
     // if (!user) { 
     //     console.log("no user")
     //     return res.redirect('/'); }
