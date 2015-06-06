@@ -89,11 +89,36 @@ app.post('/api/application', Applications.save);
 app.post('/api/application/filter', Applications.getBy);
 app.post('/api/user/new', User.newUser);
 
-app.post('/api/login', passport.authenticate('local', function(req, res, next, info) {
-    console.log(req)
-    console.log(next)
-    res.status(200).json(req.user);
-}))
+// app.post('/api/login', passport.authenticate('local', function(req, res, next, info) {
+//     console.log(req)
+//     console.log(next)
+//     res.status(200).json(req.user);
+// }))
+
+app.post('/api/login', function(req, res, next) {
+
+  // generate the authenticate method and pass the req/res
+  passport.authenticate('local', function(err, user, info) {
+    console.log("err ", err)
+    console.log("user ", user)
+    console.log("user ", info)
+
+    // if (err) { 
+    //     console.log("we had a error")
+    //     return next(err); }
+    // if (!user) { 
+    //     console.log("no user")
+    //     return res.redirect('/'); }
+
+    // // req / res held in closure
+    // req.logIn(user, function(err) {
+    //   if (err) { return next(err); }
+    //   return res.send(user);
+    // });
+
+  })(req, res, next);
+
+});
 
 
 
