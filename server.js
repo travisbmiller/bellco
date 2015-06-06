@@ -111,9 +111,8 @@ app.post('/api/login', function(req, res, next) {
 
     if (info) {
         console.log(info.message)
-        if ( info.message === "Incorrect password." ) {
-        return res.sendStatus(401).json(1);
-        }    
+        return res.status(401).json(info.message);
+        
     }
     // if (!user) { 
     //     console.log("no user")
