@@ -97,7 +97,7 @@ app.post('/api/user/new', User.newUser);
 
 app.post('/api/login', function(req, res, next) {
     console.log("hit api");
-    console.log(req)
+    
   // generate the authenticate method and pass the req/res
   passport.authenticate('local', function(err, user, info) {
     console.log("err ", err)
