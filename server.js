@@ -93,7 +93,7 @@ app.post('/api/login', passport.authenticate('local', function(req, res, next, i
     console.log(req)
     console.log(next)
     res.status(200).json(req.user);
-});
+}))
 
 
 
