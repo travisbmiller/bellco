@@ -104,7 +104,7 @@ app.post('/api/login', function(req, res, next) {
     console.log("user ", user)
     console.log("user ", user)
 
-    if (err) { 
+    if (err) {  
         console.log("we had a error")
         return next(err); 
     }
@@ -114,8 +114,14 @@ app.post('/api/login', function(req, res, next) {
         return res.status(401).json(info.message);
         
     }
-    console.log(req.user);
-    res.status(200).json(user);
+
+    req.login(user, {}, function(err) {
+                if (err) { return next(err) };
+                return res.send("working";)
+            });
+
+    // console.log(req.user);
+    // res.status(200).json(user);
   })(req, res, next);
 
 });
