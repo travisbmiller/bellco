@@ -14,7 +14,7 @@
         vm.showErrorMsg = false;
         vm.passwordError = false;
         vm.emailError = false;
-        //console.log("Login controller")
+        console.log("Login controller")
 
         vm.submit = function () {
             console.log("hit submit")

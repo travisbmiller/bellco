@@ -16,10 +16,9 @@
         function login(obj) {
             
             return $http.post('/api/login', obj)
-            .then(loginComplete, loginFailed)
+            .then(loginComplete, loginFailed);
 
             function loginComplete(response) {
-                //console.log(response)
                 $state.go('dashboard',{id: response.data._id})
             }
 
