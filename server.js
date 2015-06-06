@@ -146,3 +146,8 @@ app.listen(port, function () {
 
 //delete
 app.delete('/api/application/:id', Applications.deleteApp);
+
+
+app.get('*', function(req, res) {
+  res.redirect('/');
+});

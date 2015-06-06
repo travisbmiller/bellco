@@ -19,11 +19,10 @@
               controller: 'submitController'
             })
             .state('apply.step1', {
-              url: "/apply",
+              url: "/",
               templateUrl: "./app/submit-application/step1.html",
             })
             .state('apply.step2', {
-              url: '/test',
               templateUrl: "./app/submit-application/step2.html",
             })
             .state('apply.step3', {
@@ -33,11 +32,9 @@
               templateUrl: "./app/submit-application/step4.html",
             })
             .state('apply.step5', {
-              url: '/test1',
               templateUrl: "./app/submit-application/step5.html",
             })
             .state('submit-success', {
-              url: '/test2',
               controllerAs: 'vm',
               controller: 'submitSuccessController',
               templateUrl: "./app/submit-application/success.html",
