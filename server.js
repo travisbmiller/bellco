@@ -29,7 +29,7 @@ app.use(session({
 }));
 
 function loggedIn(req, res, next) {
-    if ( !req.isAuthenticated() ) return res.status(500).send('Not Authenticated')
+    if ( !req.isAuthenticated() ) return res.status(401).send('Not Authenticated')
     next();
 }
 
@@ -114,18 +114,8 @@ app.post('/api/login', function(req, res, next) {
         return res.status(401).json(info.message);
         
     }
-
+    console.log(req.user);
     res.status(200).json(user);
-    // if (!user) { 
-    //     console.log("no user")
-    //     return res.redirect('/'); }
-
-    // // req / res held in closure
-    // req.logIn(user, function(err) {
-    //   if (err) { return next(err); }
-    //   return res.send(user);
-    // });
-
   })(req, res, next);
 
 });
