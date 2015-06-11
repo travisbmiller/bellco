@@ -20,6 +20,7 @@
         vm.application.positions = {};
         vm.selectedPositions = [];
         
+
         vm.states = [
             { st: "AK", name: "AK"},
             { st: "AZ", name: "AZ"},

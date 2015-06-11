@@ -588,7 +588,7 @@
             <text id="TELEPHONE" sketch:type="MSTextLayer" font-family="Roboto" font-size="5" font-weight="normal" fill="#474747">
                 <tspan x="208" y="524">TELEPHONE</tspan>
             </text>
-            <text id="PLEASANT-HILL-Copy-4" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000">
+            <text id="PLEASANT-HILL-Copy-4" sketch:type="MSTextLayer" font-family="Roboto" font-size="8" font-weight="normal" fill="#000000">
                 <tspan x="208" y="514"> {{vm.doc.jobs.one.address}} {{vm.doc.jobs.one.city}} {{vm.doc.jobs.one.state}} {{vm.doc.jobs.one.zip}} </tspan>
             </text>
             <text id="555-555-5555" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000">
@@ -616,17 +616,34 @@
                 <tspan x="497" y="524">TO</tspan>
             </text>
             
-            
-            <text id="STUFF-THEY-DID-AT-TH" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000">
-                <tspan x="41" y="558" ng-bind="vm.doc.jobs.one.jobdetails"></tspan>
+            <!-- If only 1 line -->
+            <text id="STUFF-THEY-DID-AT-TH" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000" ng-hide="vm.doc.jobs.one.jobdetails.length > 50">
+                <tspan x="41" y="558"> {{ vm.doc.jobs.one.jobdetails }} </tspan>
             </text>
+
+            <!-- If 2 Lines are needed -->
+
+            <text id="Job-1-JobDetails-line1" sketch:type="MSTextLayer" font-family="Roboto" font-size="8" font-weight="normal" fill="#000000">
+                <tspan x="110" y="549"> {{ vm.jobDetails1.line1 }} </tspan>
+                <tspan x="41" y="559"> {{ vm.jobDetails1.line2 }} </tspan>
+            </text>
+
             <text id="WHAT-DID-YOU-DO-THER" sketch:type="MSTextLayer" font-family="Roboto" font-size="5" font-weight="normal" fill="#474747">
                 <tspan x="41" y="546">WHAT DID YOU DO THERE?</tspan>
             </text>
             <path d="M36,584 L576,584" id="Line-Copy-49" stroke="#000000" stroke-width="0.5"></path>
-            <text id="REASON-FOR-LEAVING-T" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000">
-                <tspan x="41" y="580" ng-bind="vm.doc.jobs.one.leaveReason">REASON FOR LEAVING THERE LAST JOB</tspan>
+            
+            <!-- If only 1 line -->
+            <text id="REASON-FOR-LEAVING-T" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000" ng-hide="vm.doc.jobs.one.leaveReason.length > 80">
+                <tspan x="41" y="580">{{ vm.doc.jobs.one.leaveReason }}</tspan>
             </text>
+
+            <text id="REASON-FOR-LEAVING-T" sketch:type="MSTextLayer" font-family="Roboto" font-size="8" font-weight="normal" fill="#000000" >
+                <tspan x="110" y="570">{{ vm.leaveReason1.line1 }}</tspan>
+                <tspan x="41" y="580">{{ vm.leaveReason1.line2 }}</tspan>
+            </text>
+
+
             <text id="WHY-DID-YOU-LEAVE" sketch:type="MSTextLayer" font-family="Roboto" font-size="5" font-weight="normal" fill="#474747">
                 <tspan x="41" y="568">WHY DID YOU LEAVE</tspan>
             </text>
@@ -679,7 +696,7 @@
             <text id="TELEPHONE-Copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="5" font-weight="normal" fill="#474747">
                 <tspan x="208" y="613">TELEPHONE</tspan>
             </text>
-            <text id="PLEASANT-HILL-Copy-5" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000">
+            <text id="PLEASANT-HILL-Copy-5" sketch:type="MSTextLayer" font-family="Roboto" font-size="8" font-weight="normal" fill="#000000">
                 <tspan x="208" y="603">{{vm.doc.jobs.two.address}} {{vm.doc.jobs.two.city}} {{vm.doc.jobs.two.state}} {{vm.doc.jobs.two.zip}}</tspan>
             </text>
             <text id="555-555-5555-copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000">
@@ -709,16 +726,38 @@
             <path d="M36,629 L576,629" id="Line-Copy-60" stroke="#000000" stroke-width="0.5"></path>
             <path d="M409,629 L409,673.045429" id="Line-Copy-61" stroke="#000000" stroke-width="0.5" stroke-linecap="square"></path>
             <path d="M36,651 L409.005371,651" id="Line-Copy-62" stroke="#000000" stroke-width="0.5"></path>
-            <text id="STUFF-THEY-DID-AT-TH-Copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000">
-                <tspan x="41" y="647" ng-bind="vm.doc.jobs.two.jobdetails"></tspan>
+            
+            
+
+            <!-- If only 1 line -->
+            <text id="STUFF-THEY-DID-AT-TH-Copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000" ng-hide="vm.doc.jobs.two.jobdetails.length > 80">
+                <tspan x="41" y="647">{{ vm.doc.jobs.two.jobdetails }}</tspan>
             </text>
+            
+            <!-- If 2 lines are needed -->
+            <text id="STUFF-THEY-DID-AT-TH-Copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="8" font-weight="normal" fill="#000000">
+                <tspan x="110" y="639">{{ vm.jobDetails2.line1  }}</tspan>
+                <tspan x="41" y="649">{{ vm.jobDetails2.line2  }}</tspan>
+            </text>
+            
+
             <text id="WHAT-DID-YOU-DO-THER-Copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="5" font-weight="normal" fill="#474747">
                 <tspan x="41" y="635">WHAT DID YOU DO THERE?</tspan>
             </text>
             <path d="M36,673 L576,673" id="Line-Copy-63" stroke="#000000" stroke-width="0.5"></path>
-            <text id="REASON-FOR-LEAVING-T-Copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000">
-                <tspan x="41" y="669" ng-bind="vm.doc.jobs.two.leaveReason"></tspan>
+            
+            <!-- If only 1 line -->
+            <text id="REASON-FOR-LEAVING-T-Copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="10" font-weight="normal" fill="#000000" ng-hide="vm.doc.jobs.two.leaveReason.length > 80">
+                <tspan x="41" y="669"> {{ vm.doc.jobs.two.leaveReason }}</tspan>
             </text>
+
+            <text id="REASON-FOR-LEAVING-T-Copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="8" font-weight="normal" fill="#000000">
+                <tspan x="110" y="660"> {{ vm.leaveReason2.line1 }}</tspan>
+                <tspan x="41" y="670"> {{ vm.leaveReason2.line2 }}</tspan>
+            </text>
+            
+
+
             <text id="WHY-DID-YOU-LEAVE-Copy" sketch:type="MSTextLayer" font-family="Roboto" font-size="5" font-weight="normal" fill="#474747">
                 <tspan x="41" y="657">WHY DID YOU LEAVE</tspan>
             </text>
