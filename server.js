@@ -80,14 +80,12 @@ passport.deserializeUser(function(obj, done) {
 });
 
 
-// Test API
-app.get('/api/test', function (req, res) { res.send("testing working");});
 
 
 // Post Requests
 app.post('/api/application', Applications.save);
 app.post('/api/application/filter', Applications.getBy);
-app.post('/api/user/new', User.newUser);
+app.post('/api/user/new', loggedIn, User.newUser);
 
 // app.post('/api/login', passport.authenticate('local', function(req, res, next, info) {
 //     console.log(req)
@@ -131,15 +129,16 @@ app.post('/api/login', function(req, res, next) {
 
 
 // Get Requests
-app.get('/api/application/', Applications.get);
+app.get('/api/application/', loggedIn, Applications.get);
 app.get('/api/application/:id',loggedIn, Applications.getByID);
 app.get('/api/user/:id',loggedIn, User.getUser);
-app.get('/login', function (req, res) {
+app.get('/login', function(req, res) {
     res.redirect('/#/login');
 })
+
 app.get('/logout', function(req, res) {
   req.logout();
-  
+  res.redirect('/#/login');
 });
 
 app.listen(port, function () {
@@ -150,6 +149,6 @@ app.listen(port, function () {
 app.delete('/api/application/:id', Applications.deleteApp);
 
 
-app.get('*', function(req, res) {
+app.get('/*', function(req, res) {
   res.redirect('/');
 });
