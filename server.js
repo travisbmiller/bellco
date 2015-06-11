@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-console.log("testing evn - ", process.env.PORT)
+
 
 
 // Controllers
@@ -16,8 +16,8 @@ var User = require('./api/controllers/UserCtrl');
 // Model
 UserModel = require('./api/models/userModel');
 
-var port = 80;
-app.set('port', process.env.PORT || port);
+var port = 9001;
+//app.set('port', process.env.PORT || port);
 
 mongoose.connect('mongodb://localhost/bellco');
 
@@ -134,10 +134,12 @@ app.post('/api/login', function(req, res, next) {
 app.get('/api/application/', Applications.get);
 app.get('/api/application/:id',loggedIn, Applications.getByID);
 app.get('/api/user/:id',loggedIn, User.getUser);
-
+app.get('/login', function (req, res) {
+    res.redirect('/#/login');
+})
 app.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/#/login');
+  
 });
 
 app.listen(port, function () {
