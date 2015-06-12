@@ -16,7 +16,7 @@ var User = require('./api/controllers/UserCtrl');
 // Model
 UserModel = require('./api/models/userModel');
 
-var port = 80;
+var port = 9001;
 //app.set('port', process.env.PORT || port);
 
 mongoose.connect('mongodb://localhost/bellco');
