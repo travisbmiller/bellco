@@ -24,10 +24,11 @@
         // vm.dateRange.from = 'From';
         // vm.dateRange.to = 'To'
         vm.setHeight = false;
-        vm.date = moment()
-        // Dates for Query
-        var dateFrom = "2015-01-11";
-        var dateTo = "2015-06-11";
+        
+        // Setting Dates for Query
+    
+        var dateFrom = moment().subtract( 30, 'days').startOf('day').toISOString();
+        var dateTo = moment().endOf('day').toISOString();
         
         // Stores
         vm.selectedStores = 0;
