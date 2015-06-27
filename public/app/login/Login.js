@@ -18,9 +18,11 @@
 
         vm.submit = function () {
             console.log("hit submit")
-            
+            var email = vm.email.toLowerCase().trim()
+
+
             var obj = {
-                email: vm.email,
+                email: email,
                 password: vm.password
             }
             //console.log(obj)

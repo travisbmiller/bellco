@@ -8,31 +8,32 @@
         <img class="animated login1 bounceInUp" src="images/logo_svg.svg">
     </div>
 </div>
-        
-<div class="row animated bounceInUp login2">
-    <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated" ng-class="{'shake': vm.emailError}">
-        <label ng-class="{'show-label': vm.email.length >= 1}">Email Address</label>
-        <input 
-            type="text" 
-            placeholder="E-mail Address"
-            ng-model="vm.email">
+<form ng-submit="vm.submit()">        
+    <div class="row animated bounceInUp login2">
+        <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated" ng-class="{'shake': vm.emailError}">
+            <label ng-class="{'show-label': vm.email.length >= 1}">Email Address</label>
+            <input 
+                type="text" 
+                placeholder="E-mail Address"
+                ng-model="vm.email">
+        </div>
     </div>
-</div>
-<div class="row animated bounceInUp login3">
-    <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated" ng-class="{'shake': vm.passwordError}">
-        <label ng-class="{'show-label': vm.password.length >= 1}">Password</label>
-        <input 
-            type="password" 
-            placeholder="Password"
-            ng-model="vm.password">
+    <div class="row animated bounceInUp login3">
+        <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 input-group animated" ng-class="{'shake': vm.passwordError}">
+            <label ng-class="{'show-label': vm.password.length >= 1}">Password</label>
+            <input 
+                type="password" 
+                placeholder="Password"
+                ng-model="vm.password">
+        </div>
     </div>
-</div>
 
-<div class="row animated bounceInUp login4">
-    <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 animated">
-        <button type="submit" ng-click="vm.submit()" class="button expand login">Log In</button>
+    <div class="row animated bounceInUp login4">
+        <div class="column large-4 large-offset-6 medium-offset-5 medium-6 small-offset-2 small-12 animated">
+            <button type="submit"  class="button expand login">Log In</button>
+        </div>
     </div>
-</div>
+</form>
 
 <div class="row modal" ng-show="vm.showModalError">
     

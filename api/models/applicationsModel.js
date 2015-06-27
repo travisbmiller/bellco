@@ -23,7 +23,8 @@ var userSchema = new Schema({
     schools: Object,
     jobs: Object,
     workedBeforeAtTacoBell: Object,
-    submittedAt: { type: Date, default: Date.now }
+    submittedAt: { type: Date, default: Date.now },
+    seen: {type: Boolean, default: false}
 
 })
 

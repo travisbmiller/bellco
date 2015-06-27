@@ -13,6 +13,14 @@
         vm.doc = docData.data
         vm.animate = true;
         
+        seen(vm.doc._id)
+
+        function seen (id) {
+            $http.post('api/application/seen/' + id)
+        
+        }
+
+
 
         if (docData.data.jobs && docData.data.jobs.one && docData.data.jobs.one.jobdetails) {
             vm.jobDetails1 = breakStrings( docData.data.jobs.one.jobdetails );

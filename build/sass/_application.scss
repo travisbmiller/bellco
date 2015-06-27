@@ -513,6 +513,17 @@
     }
 }
 
+.notSeen {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: $purple-new;
+    position: absolute; 
+    top: 23px;
+  left: 8px;
+}
+
 .number-box {
     position: absolute;
     top: 12.5px;
