@@ -81,6 +81,18 @@ module.exports = {
             return res.status(200).json(applications);
 
         }); 
+    },
+
+    seen: function (req, res) {
+        console.log("hit seen api")
+        var id = req.params.id;
+        console.log(id)
+        Application.update({ _id: id }, {
+          seen: true
+        },function(err, application) {
+            if (err) return res.status(500).json(err);
+            return res.status(200).json(application);
+        });      
     }
 
 };

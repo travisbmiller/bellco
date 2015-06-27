@@ -965,6 +965,16 @@ input[type=radio]:hover + label:after {
     color: #666;
     font-weight: 500; }
 
+.notSeen {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: #9041D5;
+  position: absolute;
+  top: 23px;
+  left: 8px; }
+
 .number-box {
   position: absolute;
   top: 12.5px;

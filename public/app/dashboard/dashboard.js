@@ -392,6 +392,7 @@
         load(vm.stores, positions, dateFrom, dateTo)
             .then(function (res) {
                 vm.data = res.data;
+                console.log(vm.data)
             }, function (err) {
                 console.log(err)
             })

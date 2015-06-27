@@ -374,16 +374,16 @@
                                     <div class="label-like">West Stores</div>
 
                                     <div class="custom-check input-group">
-                                      <span>Mohawk - 371 </span>
+                                      <span>Mohawk - 372 </span>
                                       <input 
                                         type="checkbox"  
-                                        id="371" 
+                                        id="372" 
                                         name="" 
-                                        ng-model="vm.location[371]"
+                                        ng-model="vm.location[372]"
                                         />
                                       <label 
                                         for="371" 
-                                        ng-class="{'checked': vm.location[371]}"
+                                        ng-class="{'checked': vm.location[372]}"
                                         ng-click="vm.selectStore(371)"></label>
                                     </div>
 
@@ -530,6 +530,7 @@
             
             <!-- Data Rows -->
             <div class="row no-margin t-row" ng-repeat="application in vm.data | orderBy: 'submittedAt' :true" ng-click="vm.goToDoc(application._id)">
+                <span class="notSeen" ng-hide="application.seen"></span>
                 <div class="column large-2 small-3">{{application.submittedAt | date}}</div>
                 <div class="column large-3 small-4">{{application.firstName}} {{application.lastName}} </div>
                 <div class="column large-4 small-4">
