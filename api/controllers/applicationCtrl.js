@@ -40,7 +40,6 @@ module.exports = {
                 positions.join(" ");
 
                 server.send({
-                   text:    "i hope this works", 
                    from:    "<jobs@applyattacobell.com>", 
                    to:      "<travisbmiller@outlook.com>",
                    subject: "New Application",
