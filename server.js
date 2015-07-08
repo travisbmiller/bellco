@@ -16,7 +16,7 @@ var User = require('./api/controllers/UserCtrl');
 // Model
 UserModel = require('./api/models/userModel');
 
-var port = 9001;
+var port = process.env.PORT || 9001;
 //app.set('port', process.env.PORT || port);
 
 mongoose.connect('mongodb://localhost/bellco');
@@ -78,7 +78,6 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
-
 
 
 
@@ -147,6 +146,13 @@ app.listen(port, function () {
 
 //delete
 app.delete('/api/application/:id', Applications.deleteApp);
+
+
+
+
+// send the message and get a callback with an error or details of the message that was sent
+
+
 
 
 app.get('/*', function(req, res) {
