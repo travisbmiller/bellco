@@ -16,11 +16,9 @@ var User = require('./api/controllers/UserCtrl');
 // Model
 UserModel = require('./api/models/userModel');
 
-
-var port = process.env.PORT || 9001;
-
-//app.set('port', process.env.PORT || port);
-
+// Setting port
+//var port = process.env.PORT || 9001;
+app.set('port', process.env.PORT || 9001);
 mongoose.connect('mongodb://localhost/bellco');
 
 // Middle ware
@@ -142,21 +140,17 @@ app.get('/logout', function(req, res) {
   res.redirect('/#/login');
 });
 
-app.listen(port, function () {
-    console.log("Listing on port ", port)
-});
+
 
 //delete
 app.delete('/api/application/:id', Applications.deleteApp);
 
-
-
-
-// send the message and get a callback with an error or details of the message that was sent
-
-
-
-
+// Catch all
 app.get('/*', function(req, res) {
   res.redirect('/');
+});
+
+
+app.listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
 });
