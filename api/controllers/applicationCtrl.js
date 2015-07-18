@@ -3,8 +3,8 @@ var email   = require("emailjs");
 var server  = email.server.connect({
    user:     process.env.EMAIL_USR, 
    password: process.env.EMAIL_PASS, 
-   host:    "smtp-mail.outlook.com", 
-   tls: {ciphers: "SSLv3"}
+   host:    "smtp.gmail.com", 
+   ssl: true
 });
 
 module.exports = {
@@ -40,7 +40,7 @@ module.exports = {
                 positions.join(" ");
 
                 server.send({
-                   from:    "<jobs@applyattacobell.com>", 
+                   from:    "<applyattacobell@gmail.com>", 
                    to:      "<robinm@bell-co.net>, <daniellem@bell-co.net>, <travisbmiller@outlook.com>",
                    subject: "New Application",
                    attachment: [ 
