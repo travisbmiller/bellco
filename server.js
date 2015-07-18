@@ -151,6 +151,7 @@ app.get('/*', function(req, res) {
 });
 
 
-app.listen(app.get('port'), function(){
+app.listen(app.get('port'), function(err){
+    if (err) console.log(err);
   console.log('Express server listening on port ' + app.get('port'));
 });
