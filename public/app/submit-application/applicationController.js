@@ -124,41 +124,41 @@
 
         // Locations
         vm.application.locations = [ 
-                {
-                    checked: false,
-                    city: "Springfield",
-                    name: "Mohawk",
-                    st: "1505 Mohawk Blvd",
-                    id: 372
-                }, 
-                {
-                    checked: false,
-                    city: "Springfield",
-                    name: "Main St",
-                    st: "4198 Main St",
-                    id: 1421
-                },
-                {
-                    checked: false,
-                    city: "Albany",
-                    name: "West Albany",
-                    st: "1835 Pacific Blvd SW",
-                    id: 16630
-                }, 
-                {
-                    checked: false,
-                    city: "Albany",
-                    name: "K-Mart",
-                    st: "200 Airport Rd SE",
-                    id: 17559
-                }, 
-                {
-                    checked: false,
-                    city: "Lebanon",
-                    name: "Lebanon",
-                    st: "12 E Airport Rd",
-                    id: 19827
-                },
+                // {
+                //     checked: false,
+                //     city: "Springfield",
+                //     name: "Mohawk",
+                //     st: "1505 Mohawk Blvd",
+                //     id: 372
+                // }, 
+                // {
+                //     checked: false,
+                //     city: "Springfield",
+                //     name: "Main St",
+                //     st: "4198 Main St",
+                //     id: 1421
+                // },
+                // {
+                //     checked: false,
+                //     city: "Albany",
+                //     name: "West Albany",
+                //     st: "1835 Pacific Blvd SW",
+                //     id: 16630
+                // }, 
+                // {
+                //     checked: false,
+                //     city: "Albany",
+                //     name: "K-Mart",
+                //     st: "200 Airport Rd SE",
+                //     id: 17559
+                // }, 
+                // {
+                //     checked: false,
+                //     city: "Lebanon",
+                //     name: "Lebanon",
+                //     st: "12 E Airport Rd",
+                //     id: 19827
+                // },
                 {
                     checked: false,
                     city: "Redmond",
@@ -184,7 +184,7 @@
                     checked: false,
                     city: "Prineville",
                     name: "Prineville",
-                    st: "2042  NE 3rd Street",
+                    st: "2042  NE 3rd St",
                     id: 311237
                 }
         ];
