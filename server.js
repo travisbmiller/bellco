@@ -79,12 +79,12 @@ passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
 
-
+//loggedIn,
 
 // Post Requests
 app.post('/api/application', Applications.save);
 app.post('/api/application/filter', Applications.getBy);
-app.post('/api/user/new', loggedIn, User.newUser);
+app.post('/api/user/new',  User.newUser);
 app.post('/api/application/seen/:id', Applications.seen)
 // app.post('/api/login', passport.authenticate('local', function(req, res, next, info) {
 //     console.log(req)
